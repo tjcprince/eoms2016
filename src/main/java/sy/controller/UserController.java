@@ -1,6 +1,9 @@
 package sy.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -71,11 +74,33 @@ public class UserController {
 	public ModelAndView showUser2(String id,HttpServletRequest request){
 		//返回xml  http://stackoverflow.com/questions/15273393/javax-servlet-servletexception-unable-to-locate-object-to-be-marshalled-in-mode
 		ModelAndView mav=new ModelAndView();
-		User u = userService.getUserById(id);
-		TestXmlModle xmlModle=new TestXmlModle();
-		xmlModle.setId(u.getId());
-		xmlModle.setName(u.getName());
-		mav.addObject("xmlModle", xmlModle);
+//		User u = userService.getUserById(id);
+//		TestXmlModle xmlModle=new TestXmlModle();
+//		xmlModle.setId(u.getId());
+//		xmlModle.setName(u.getName());
+//		mav.addObject("xmlModle", xmlModle);
+		List ll=new ArrayList();
+		User u=new User();
+		u.setId("1");
+		u.setAge("22");
+		u.setName("小明");
+		ll.add(u);
+		User u1=new User();
+		u1.setId("123");
+		u1.setAge("322");
+		u1.setName("小明3");
+		ll.add(u1);
+		
+		ll.add("hhh");
+		
+		List<User> list=userService.getAllUser();
+		ll.add(list);
+		
+		Map<String,String> map= new HashMap<String,String>();
+		map.put("aa", "1111");
+		map.put("bb", "2222");
+		ll.add(map);
+		mav.addObject("data", ll);
 		logger.info(mav.toString());
 		return mav;
 	}
