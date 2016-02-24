@@ -24,7 +24,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <spring:message code="button.add"/>  
 <a href="global/language.do?language=zh_CN">中文</a>  
 <a href="global/language.do?language=en">英文</a>
-<a href="<%=basePath%>/userController/showUser1.do?id=1">访问action</a>
-<img alt="测试" src="./images/tr.jpg"> 
 </body>
 </html>
