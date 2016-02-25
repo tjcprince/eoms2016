@@ -1,4 +1,4 @@
-package sy.modle;
+package sy.module;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
