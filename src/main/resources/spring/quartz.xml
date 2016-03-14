@@ -29,7 +29,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         </property>
         <property name="cronExpression">
           <!--    <value>5/15 * * * * ?</value>-->
-            <value>0 15 10 ? * *</value>
+            <value>0 0 12 * * ?</value>
         </property>
     </bean>
     <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->

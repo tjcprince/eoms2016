@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sy.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="sy.module.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="display_name" property="displayName" jdbcType="VARCHAR" />
+    <result column="facebook" property="facebook" jdbcType="VARCHAR" />
+    <result column="google" property="google" jdbcType="VARCHAR" />
+    <result column="linkedin" property="linkedin" jdbcType="VARCHAR" />
+    <result column="github" property="github" jdbcType="VARCHAR" />
+    <result column="foursquare" property="foursquare" jdbcType="VARCHAR" />
+    <result column="twitter" property="twitter" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, email, password, display_name, facebook, google, linkedin, github, foursquare, 
+    twitter
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByEmail" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="sy.module.User" >
+    insert into user (id, email, password, 
+      display_name, facebook, google, 
+      linkedin, github, foursquare, 
+      twitter)
+    values (#{id,jdbcType=BIGINT}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{displayName,jdbcType=VARCHAR}, #{facebook,jdbcType=VARCHAR}, #{google,jdbcType=VARCHAR}, 
+      #{linkedin,jdbcType=VARCHAR}, #{github,jdbcType=VARCHAR}, #{foursquare,jdbcType=VARCHAR}, 
+      #{twitter,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="sy.module.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="displayName != null" >
+        display_name,
+      </if>
+      <if test="facebook != null" >
+        facebook,
+      </if>
+      <if test="google != null" >
+        google,
+      </if>
+      <if test="linkedin != null" >
+        linkedin,
+      </if>
+      <if test="github != null" >
+        github,
+      </if>
+      <if test="foursquare != null" >
+        foursquare,
+      </if>
+      <if test="twitter != null" >
+        twitter,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="displayName != null" >
+        #{displayName,jdbcType=VARCHAR},
+      </if>
+      <if test="facebook != null" >
+        #{facebook,jdbcType=VARCHAR},
+      </if>
+      <if test="google != null" >
+        #{google,jdbcType=VARCHAR},
+      </if>
+      <if test="linkedin != null" >
+        #{linkedin,jdbcType=VARCHAR},
+      </if>
+      <if test="github != null" >
+        #{github,jdbcType=VARCHAR},
+      </if>
+      <if test="foursquare != null" >
+        #{foursquare,jdbcType=VARCHAR},
+      </if>
+      <if test="twitter != null" >
+        #{twitter,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="sy.module.User" >
+    update user
+    <set >
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="displayName != null" >
+        display_name = #{displayName,jdbcType=VARCHAR},
+      </if>
+      <if test="facebook != null" >
+        facebook = #{facebook,jdbcType=VARCHAR},
+      </if>
+      <if test="google != null" >
+        google = #{google,jdbcType=VARCHAR},
+      </if>
+      <if test="linkedin != null" >
+        linkedin = #{linkedin,jdbcType=VARCHAR},
+      </if>
+      <if test="github != null" >
+        github = #{github,jdbcType=VARCHAR},
+      </if>
+      <if test="foursquare != null" >
+        foursquare = #{foursquare,jdbcType=VARCHAR},
+      </if>
+      <if test="twitter != null" >
+        twitter = #{twitter,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="sy.module.User" >
+    update user
+    set email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      display_name = #{displayName,jdbcType=VARCHAR},
+      facebook = #{facebook,jdbcType=VARCHAR},
+      google = #{google,jdbcType=VARCHAR},
+      linkedin = #{linkedin,jdbcType=VARCHAR},
+      github = #{github,jdbcType=VARCHAR},
+      foursquare = #{foursquare,jdbcType=VARCHAR},
+      twitter = #{twitter,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="MysqlDialectSuffix" >
+    <if test="pageHelper != null" >
+      <![CDATA[ limit #{pageHelper.begin}, #{pageHelper.length}]]>
+    </if>
+  </sql>
+  <insert id="insertBatch" parameterType="sy.module.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      email,password,display_name,facebook,google,linkedin,github,foursquare,twitter,
+    </trim>
+    values
+    <foreach collection="list" index="index" item="item" separator="," >
+      (
+      <trim suffixOverrides="," >
+        #{item.email,jdbcType=VARCHAR},#{item.password,jdbcType=VARCHAR},#{item.displayName,jdbcType=VARCHAR},#{item.facebook,jdbcType=VARCHAR},#{item.google,jdbcType=VARCHAR},#{item.linkedin,jdbcType=VARCHAR},#{item.github,jdbcType=VARCHAR},#{item.foursquare,jdbcType=VARCHAR},#{item.twitter,jdbcType=VARCHAR},
+      </trim>
+      )
+    </foreach>
+  </insert>
+</mapper>
