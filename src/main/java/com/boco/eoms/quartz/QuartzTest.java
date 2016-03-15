@@ -1,4 +1,4 @@
-package sy.quartz;
+package com.boco.eoms.quartz;
 
 import org.apache.log4j.Logger;
 

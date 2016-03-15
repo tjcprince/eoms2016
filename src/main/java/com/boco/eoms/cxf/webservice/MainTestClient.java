@@ -1,4 +1,4 @@
-package sy.cxf.webservice;
+package com.boco.eoms.cxf.webservice;
 
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;

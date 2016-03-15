@@ -8,7 +8,7 @@ http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 ">
     <!-- bean -->
-    <bean id="quartzTest" class="sy.quartz.QuartzTest" />
+    <bean id="quartzTest" class="com.boco.eoms.quartz.QuartzTest" />
  
     <!-- 定义调用对象和调用对象的方法 -->
     <bean id="studyDetail"

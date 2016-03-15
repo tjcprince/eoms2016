@@ -15,6 +15,6 @@
     <!-- http://localhost:8080/spring-mybatis/webservice/services 所有服务 -->
     <!-- http://localhost:8080/spring-mybatis/webservice/helloService?wsdl 读取wsdl文件内容 -->
   <!-- 第一个测试级WebService服务发布 -->
-  <jaxws:endpoint id="helloService" implementor="sy.cxf.webservice.HelloWorldImpl" address="/helloService"  />
+  <jaxws:endpoint id="helloService" implementor="com.boco.eoms.cxf.webservice.HelloWorldImpl" address="/helloService"  />
  
  </beans>

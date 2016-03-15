@@ -1,4 +1,4 @@
-package sy.controller;
+package com.boco.eoms.auth.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -17,13 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.boco.eoms.auth.module.Token;
+import com.boco.eoms.auth.utils.AuthUtils;
+import com.boco.eoms.auth.utils.PasswordService;
+import com.boco.eoms.user.module.User;
+import com.boco.eoms.user.service.UserServiceI;
 import com.nimbusds.jose.JOSEException;
 
-import sy.auth.AuthUtils;
-import sy.auth.PasswordService;
-import sy.module.Token;
-import sy.module.User;
-import sy.service.UserServiceI;
+
 
 @Controller
 @RequestMapping("/auth")

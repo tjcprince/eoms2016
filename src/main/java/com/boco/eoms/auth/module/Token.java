@@ -1,4 +1,4 @@
-package sy.module;
+package com.boco.eoms.auth.module;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

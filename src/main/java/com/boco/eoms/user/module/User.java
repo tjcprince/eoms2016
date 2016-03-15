@@ -1,4 +1,4 @@
-package sy.module;
+package com.boco.eoms.user.module;
 
 import java.io.Serializable;
 

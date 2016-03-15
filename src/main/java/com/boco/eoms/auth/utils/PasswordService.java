@@ -1,4 +1,4 @@
-package sy.auth;
+package com.boco.eoms.auth.utils;
 
 import org.mindrot.jbcrypt.BCrypt;
 

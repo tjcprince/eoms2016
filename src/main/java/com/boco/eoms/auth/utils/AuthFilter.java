@@ -1,4 +1,4 @@
-package sy.auth;
+package com.boco.eoms.auth.utils;
 
 import java.io.IOException;
 import java.text.ParseException;

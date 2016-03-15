@@ -1,7 +1,8 @@
-package sy.dao;
+package com.boco.eoms.user.dao;
 
 import java.util.List;
-import sy.module.User;
+
+import com.boco.eoms.user.module.User;
 
 public interface UserMapper {
     public static final String DATA_SOURCE_NAME = "db6";

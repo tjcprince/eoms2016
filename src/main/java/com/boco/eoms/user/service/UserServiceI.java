@@ -1,6 +1,6 @@
-package sy.service;
+package com.boco.eoms.user.service;
 
-import sy.module.User;
+import com.boco.eoms.user.module.User;
 
 
 public interface UserServiceI {

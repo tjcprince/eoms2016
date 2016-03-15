@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="sy.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="sy.module.User" >
+<mapper namespace="com.boco.eoms.user.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.user.module.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
     delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="sy.module.User" >
+  <insert id="insert" parameterType="com.boco.eoms.user.module.User" >
     insert into user (id, email, password, 
       display_name, facebook, google, 
       linkedin, github, foursquare, 
@@ -43,7 +43,7 @@
       #{linkedin,jdbcType=VARCHAR}, #{github,jdbcType=VARCHAR}, #{foursquare,jdbcType=VARCHAR}, 
       #{twitter,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="sy.module.User" >
+  <insert id="insertSelective" parameterType="com.boco.eoms.user.module.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -110,7 +110,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="sy.module.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.user.module.User" >
     update user
     <set >
       <if test="email != null" >
@@ -143,7 +143,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="sy.module.User" >
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.user.module.User" >
     update user
     set email = #{email,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -161,7 +161,7 @@
       <![CDATA[ limit #{pageHelper.begin}, #{pageHelper.length}]]>
     </if>
   </sql>
-  <insert id="insertBatch" parameterType="sy.module.User" >
+  <insert id="insertBatch" parameterType="com.boco.eoms.user.module.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       email,password,display_name,facebook,google,linkedin,github,foursquare,twitter,

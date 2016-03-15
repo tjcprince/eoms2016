@@ -1,4 +1,4 @@
-package sy.filter;
+package com.boco.eoms.filter;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.context.WebApplicationContext;
 
+import com.boco.eoms.auth.utils.AuthUtils;
+import com.boco.eoms.user.module.User;
+import com.boco.eoms.user.service.UserServiceI;
 import com.nimbusds.jose.JOSEException;
 
-import sy.auth.AuthUtils;
-import sy.module.User;
-import sy.service.UserServiceI;
 
 public class AuthFilter implements Filter {
 	private ServletContext servletContext;

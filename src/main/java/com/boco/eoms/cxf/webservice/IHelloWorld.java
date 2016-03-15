@@ -1,4 +1,4 @@
-package sy.cxf.webservice;
+package com.boco.eoms.cxf.webservice;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

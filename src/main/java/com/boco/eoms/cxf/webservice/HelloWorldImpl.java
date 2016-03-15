@@ -1,4 +1,4 @@
-package sy.cxf.webservice;
+package com.boco.eoms.cxf.webservice;
 
 public class HelloWorldImpl implements IHelloWorld {  
     @Override  

@@ -1,10 +1,11 @@
-package sy.auth;
+package com.boco.eoms.auth.utils;
 
 import java.text.ParseException;
 
 import com.nimbusds.jose.crypto.MACVerifier;
 import org.joda.time.DateTime;
 
+import com.boco.eoms.auth.module.Token;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.JWSHeader;
@@ -14,7 +15,6 @@ import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.ReadOnlyJWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 
-import sy.module.Token;
 
 public final class AuthUtils {
 	

@@ -1,10 +1,10 @@
-package sy.service;
+package com.boco.eoms.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sy.dao.UserMapper;
-import sy.module.User;
+import com.boco.eoms.user.dao.UserMapper;
+import com.boco.eoms.user.module.User;
 
 @Service("userService")
 public class UserServiceImpl implements UserServiceI {
