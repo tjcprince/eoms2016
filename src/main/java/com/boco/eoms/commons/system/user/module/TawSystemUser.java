@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class TawSystemUser implements Serializable {
-    private String id;;
+    private String id;
 
     private String cptroomid;
 
