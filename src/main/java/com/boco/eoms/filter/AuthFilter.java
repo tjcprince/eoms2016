@@ -39,9 +39,14 @@ public class AuthFilter implements Filter {
 		WebApplicationContext context = (WebApplicationContext) servletContext
 				.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 		UserServiceI userService = (UserServiceI) context.getBean("userService");
+		System.out.println(request.getServletPath());
 		if ("/auth/login".equals(request.getServletPath())) {
 			chain.doFilter(req, res);
-		} else {
+		} else if("/websck".equals(request.getServletPath())){
+			chain.doFilter(req, res);
+		}else if("/sock/send".equals(request.getServletPath())){
+			chain.doFilter(req, res);
+		}else {
 			String authHeadKey = request.getHeader(AuthUtils.AUTH_HEADER_KEY);
 			System.out.println(authHeadKey);
 			if (authHeadKey != null) {

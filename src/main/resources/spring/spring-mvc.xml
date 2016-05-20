@@ -18,6 +18,12 @@
 
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
 	<!--  <context:component-scan base-package="sy.controller" />-->
+	<context:component-scan base-package="com.boco.eoms.webSocket.config" />
+	<context:component-scan base-package="com.boco.eoms.webSocket.hndler" />
+	<context:component-scan base-package="com.boco.eoms.webSocket.interceptor" />
+	<!-- 默认的注解映射的支持 -->
+    <context:annotation-config/>
+	
 	<!-- 启用注解，并定义组件查找规则 ，mvc层只负责扫描@Controller -->
 	<context:component-scan base-package="com.boco.eoms.**.controller" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />

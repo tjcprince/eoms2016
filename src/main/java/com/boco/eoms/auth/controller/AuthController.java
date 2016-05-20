@@ -66,6 +66,7 @@ public class AuthController {
 		User userNew=userService.selectByEmail(user.getEmail());
 		    if (PasswordService.checkPassword(user.getPassword(), userNew.getPassword())) {
 		      final Token token = AuthUtils.createToken(request.getRemoteHost(), userNew.getId());
+		      request.getSession().setAttribute("username", user.getEmail());
 		      return Response.ok().entity(token).build();
 		    }
 		    return Response.status(Status.UNAUTHORIZED).entity(LOGING_ERROR_MSG).build();
