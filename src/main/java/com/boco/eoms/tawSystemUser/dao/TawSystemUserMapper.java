@@ -1,8 +1,7 @@
-package com.boco.eoms.commons.system.user.dao;
+package com.boco.eoms.tawSystemUser.dao;
 
+import com.boco.eoms.tawSystemUser.module.TawSystemUser;
 import java.util.List;
-
-import com.boco.eoms.commons.system.user.module.TawSystemUser;
 
 public interface TawSystemUserMapper {
     public static final String DATA_SOURCE_NAME = "db1";
@@ -20,4 +19,6 @@ public interface TawSystemUserMapper {
     int updateByPrimaryKey(TawSystemUser record);
 
     int insertBatch(List<TawSystemUser> records);
+
+	TawSystemUser selectByUserid(String userid);
 }

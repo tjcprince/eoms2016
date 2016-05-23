@@ -1,4 +1,4 @@
-package com.boco.eoms.user.module;
+package com.boco.eoms.tawSystemUser.module;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="sy.dao.TawSystemUserMapper" >
-  <resultMap id="BaseResultMap" type="sy.module.TawSystemUser" >
+<mapper namespace="com.boco.eoms.tawSystemUser.dao.TawSystemUserMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.tawSystemUser.module.TawSystemUser" >
     <id column="ID" property="id" jdbcType="VARCHAR" />
     <result column="CPTROOMID" property="cptroomid" jdbcType="VARCHAR" />
     <result column="CPTROOMNAME" property="cptroomname" jdbcType="VARCHAR" />
@@ -35,22 +35,75 @@
     <result column="FLAG" property="flag" jdbcType="DECIMAL" />
     <result column="FAIL_COUNT" property="failCount" jdbcType="DECIMAL" />
     <result column="ISPARTNERS" property="ispartners" jdbcType="VARCHAR" />
+    <result column="SIP" property="sip" jdbcType="VARCHAR" />
+    <result column="MAINUSER" property="mainuser" jdbcType="VARCHAR" />
+    <result column="TRANSFERREDTIME" property="transferredtime" jdbcType="VARCHAR" />
+    <result column="INSPECIALTYTIME" property="inspecialtytime" jdbcType="VARCHAR" />
+    <result column="WORKTIME" property="worktime" jdbcType="VARCHAR" />
+    <result column="SPECIALTY" property="specialty" jdbcType="VARCHAR" />
+    <result column="JOBLEVEL" property="joblevel" jdbcType="VARCHAR" />
+    <result column="JOBNAME" property="jobname" jdbcType="VARCHAR" />
+    <result column="LANGUAGEABILITY" property="languageability" jdbcType="VARCHAR" />
+    <result column="HIGHESTEDUCATION" property="highesteducation" jdbcType="VARCHAR" />
+    <result column="FIRSTEDUCATION" property="firsteducation" jdbcType="VARCHAR" />
+    <result column="BIRTHDATE" property="birthdate" jdbcType="VARCHAR" />
+    <result column="STAFFNATURE" property="staffnature" jdbcType="VARCHAR" />
+    <result column="NATION" property="nation" jdbcType="VARCHAR" />
+    <result column="CENTERDEPT" property="centerdept" jdbcType="VARCHAR" />
+    <result column="USERNO" property="userno" jdbcType="VARCHAR" />
+    <result column="USER_LEVEL" property="userLevel" jdbcType="VARCHAR" />
+    <result column="HIGHER_LEVELUSER" property="higherLeveluser" jdbcType="VARCHAR" />
+    <result column="ISAREAADMIN" property="isareaadmin" jdbcType="VARCHAR" />
+    <result column="AREANAME" property="areaname" jdbcType="VARCHAR" />
+    <result column="AREAID" property="areaid" jdbcType="VARCHAR" />
+    <result column="PHOTO" property="photo" jdbcType="VARCHAR" />
     <result column="CENTERNAME" property="centername" jdbcType="VARCHAR" />
     <result column="CENTERID" property="centerid" jdbcType="VARCHAR" />
-    <result column="POSTUSER" property="postuser" jdbcType="VARCHAR" />
-    <result column="POSTTYPE" property="posttype" jdbcType="VARCHAR" />
-    <result column="PARENTLEADER" property="parentleader" jdbcType="VARCHAR" />
-    <result column="STAFFTYPE" property="stafftype" jdbcType="VARCHAR" />
-    <result column="PARENTLEADERNAME" property="parentleadername" jdbcType="VARCHAR" />
+    <result column="EMERGENCYCONTACT" property="emergencycontact" jdbcType="VARCHAR" />
+    <result column="SPECIALATTRIBUTE" property="specialattribute" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
     <result column="POSITION" property="position" jdbcType="VARCHAR" />
+    <result column="CREATEFLAG" property="createflag" jdbcType="VARCHAR" />
+    <result column="DAIWEIUSERID" property="daiweiuserid" jdbcType="VARCHAR" />
+    <result column="PROVINCEID" property="provinceid" jdbcType="VARCHAR" />
+    <result column="CITYID" property="cityid" jdbcType="VARCHAR" />
+    <result column="DAIWEIFLAG" property="daiweiflag" jdbcType="VARCHAR" />
+    <result column="USERPOSITIONROLE" property="userpositionrole" jdbcType="VARCHAR" />
+    <result column="PROFESSION" property="profession" jdbcType="VARCHAR" />
+    <result column="BUSINESS" property="business" jdbcType="VARCHAR" />
+    <result column="COUNTRYID" property="countryid" jdbcType="VARCHAR" />
+    <result column="CITYNAME" property="cityname" jdbcType="VARCHAR" />
+    <result column="COUNTRYNAME" property="countryname" jdbcType="VARCHAR" />
+    <result column="EMPLOYEENUMBER" property="employeenumber" jdbcType="VARCHAR" />
+    <result column="NEWDEPTID" property="newdeptid" jdbcType="VARCHAR" />
+    <result column="POSITIONID" property="positionid" jdbcType="VARCHAR" />
+    <result column="PROFESSIONWIRE" property="professionwire" jdbcType="VARCHAR" />
+    <result column="PROFESSIONROTATE" property="professionrotate" jdbcType="VARCHAR" />
+    <result column="PROFESSIONTRANS" property="professiontrans" jdbcType="VARCHAR" />
+    <result column="PROFESSIONSTATION" property="professionstation" jdbcType="VARCHAR" />
+    <result column="PROFESSIONWLAN" property="professionwlan" jdbcType="VARCHAR" />
+    <result column="COMPANY" property="company" jdbcType="VARCHAR" />
+    <result column="OPERDESC" property="operdesc" jdbcType="VARCHAR" />
+    <result column="ISLEADER" property="isleader" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, CPTROOMID, CPTROOMNAME, DEPTID, DEPTNAME, EMAIL, FAMILYADDRESS, FAX, MOBILE, 
     OPERUSERID, PHONE, REMARK, SEX, USERDEGREE, USERID, USERNAME, OPERREMOTIP, SAVETIME, 
     UPDATETIME, ACCOUNT_ENABLED, ACCOUNT_EXPIRED, ACCOUNT_LOCKED, CREDENTIALS_EXPIRED, 
     PASSWORD, POSTAL_CODE, DELETED, ISFULLEMPLOY, ISREST, USERSTATUS, PORTALROLENAME, 
-    FLAG, FAIL_COUNT, ISPARTNERS, CENTERNAME, CENTERID, POSTUSER, POSTTYPE, PARENTLEADER, 
-    STAFFTYPE, PARENTLEADERNAME, POSITION
+    FLAG, FAIL_COUNT, ISPARTNERS, SIP, MAINUSER, TRANSFERREDTIME, INSPECIALTYTIME, WORKTIME, 
+    SPECIALTY, JOBLEVEL, JOBNAME, LANGUAGEABILITY, HIGHESTEDUCATION, FIRSTEDUCATION, 
+    BIRTHDATE, STAFFNATURE, NATION, CENTERDEPT, USERNO, USER_LEVEL, HIGHER_LEVELUSER, 
+    ISAREAADMIN, AREANAME, AREAID, PHOTO, CENTERNAME, CENTERID, EMERGENCYCONTACT, SPECIALATTRIBUTE, 
+    ATTRIBUTE1, ATTRIBUTE2, ATTRIBUTE3, ATTRIBUTE4, ATTRIBUTE5, POSITION, CREATEFLAG, 
+    DAIWEIUSERID, PROVINCEID, CITYID, DAIWEIFLAG, USERPOSITIONROLE, PROFESSION, BUSINESS, 
+    COUNTRYID, CITYNAME, COUNTRYNAME, EMPLOYEENUMBER, NEWDEPTID, POSITIONID, PROFESSIONWIRE, 
+    PROFESSIONROTATE, PROFESSIONTRANS, PROFESSIONSTATION, PROFESSIONWLAN, COMPANY, OPERDESC, 
+    ISLEADER
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -58,11 +111,18 @@
     from TAW_SYSTEM_USER
     where ID = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="selectByUserid" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TAW_SYSTEM_USER
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from TAW_SYSTEM_USER
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="sy.module.TawSystemUser" >
+  <insert id="insert" parameterType="com.boco.eoms.tawSystemUser.module.TawSystemUser" >
     insert into TAW_SYSTEM_USER (ID, CPTROOMID, CPTROOMNAME, 
       DEPTID, DEPTNAME, EMAIL, 
       FAMILYADDRESS, FAX, MOBILE, 
@@ -74,9 +134,25 @@
       POSTAL_CODE, DELETED, ISFULLEMPLOY, 
       ISREST, USERSTATUS, PORTALROLENAME, 
       FLAG, FAIL_COUNT, ISPARTNERS, 
-      CENTERNAME, CENTERID, POSTUSER, 
-      POSTTYPE, PARENTLEADER, STAFFTYPE, 
-      PARENTLEADERNAME, POSITION)
+      SIP, MAINUSER, TRANSFERREDTIME, 
+      INSPECIALTYTIME, WORKTIME, SPECIALTY, 
+      JOBLEVEL, JOBNAME, LANGUAGEABILITY, 
+      HIGHESTEDUCATION, FIRSTEDUCATION, BIRTHDATE, 
+      STAFFNATURE, NATION, CENTERDEPT, 
+      USERNO, USER_LEVEL, HIGHER_LEVELUSER, 
+      ISAREAADMIN, AREANAME, AREAID, 
+      PHOTO, CENTERNAME, CENTERID, 
+      EMERGENCYCONTACT, SPECIALATTRIBUTE, ATTRIBUTE1, 
+      ATTRIBUTE2, ATTRIBUTE3, ATTRIBUTE4, 
+      ATTRIBUTE5, POSITION, CREATEFLAG, 
+      DAIWEIUSERID, PROVINCEID, CITYID, 
+      DAIWEIFLAG, USERPOSITIONROLE, PROFESSION, 
+      BUSINESS, COUNTRYID, CITYNAME, 
+      COUNTRYNAME, EMPLOYEENUMBER, NEWDEPTID, 
+      POSITIONID, PROFESSIONWIRE, PROFESSIONROTATE, 
+      PROFESSIONTRANS, PROFESSIONSTATION, PROFESSIONWLAN, 
+      COMPANY, OPERDESC, ISLEADER
+      )
     values (#{id,jdbcType=VARCHAR}, #{cptroomid,jdbcType=VARCHAR}, #{cptroomname,jdbcType=VARCHAR}, 
       #{deptid,jdbcType=VARCHAR}, #{deptname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{familyaddress,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
@@ -88,16 +164,27 @@
       #{postalCode,jdbcType=VARCHAR}, #{deleted,jdbcType=VARCHAR}, #{isfullemploy,jdbcType=VARCHAR}, 
       #{isrest,jdbcType=VARCHAR}, #{userstatus,jdbcType=VARCHAR}, #{portalrolename,jdbcType=VARCHAR}, 
       #{flag,jdbcType=DECIMAL}, #{failCount,jdbcType=DECIMAL}, #{ispartners,jdbcType=VARCHAR}, 
-      #{centername,jdbcType=VARCHAR}, #{centerid,jdbcType=VARCHAR}, #{postuser,jdbcType=VARCHAR}, 
-      #{posttype,jdbcType=VARCHAR}, #{parentleader,jdbcType=VARCHAR}, #{stafftype,jdbcType=VARCHAR}, 
-      #{parentleadername,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR})
+      #{sip,jdbcType=VARCHAR}, #{mainuser,jdbcType=VARCHAR}, #{transferredtime,jdbcType=VARCHAR}, 
+      #{inspecialtytime,jdbcType=VARCHAR}, #{worktime,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, 
+      #{joblevel,jdbcType=VARCHAR}, #{jobname,jdbcType=VARCHAR}, #{languageability,jdbcType=VARCHAR}, 
+      #{highesteducation,jdbcType=VARCHAR}, #{firsteducation,jdbcType=VARCHAR}, #{birthdate,jdbcType=VARCHAR}, 
+      #{staffnature,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{centerdept,jdbcType=VARCHAR}, 
+      #{userno,jdbcType=VARCHAR}, #{userLevel,jdbcType=VARCHAR}, #{higherLeveluser,jdbcType=VARCHAR}, 
+      #{isareaadmin,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, #{areaid,jdbcType=VARCHAR}, 
+      #{photo,jdbcType=VARCHAR}, #{centername,jdbcType=VARCHAR}, #{centerid,jdbcType=VARCHAR}, 
+      #{emergencycontact,jdbcType=VARCHAR}, #{specialattribute,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, 
+      #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR}, #{attribute4,jdbcType=VARCHAR}, 
+      #{attribute5,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{createflag,jdbcType=VARCHAR}, 
+      #{daiweiuserid,jdbcType=VARCHAR}, #{provinceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, 
+      #{daiweiflag,jdbcType=VARCHAR}, #{userpositionrole,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, 
+      #{business,jdbcType=VARCHAR}, #{countryid,jdbcType=VARCHAR}, #{cityname,jdbcType=VARCHAR}, 
+      #{countryname,jdbcType=VARCHAR}, #{employeenumber,jdbcType=VARCHAR}, #{newdeptid,jdbcType=VARCHAR}, 
+      #{positionid,jdbcType=VARCHAR}, #{professionwire,jdbcType=VARCHAR}, #{professionrotate,jdbcType=VARCHAR}, 
+      #{professiontrans,jdbcType=VARCHAR}, #{professionstation,jdbcType=VARCHAR}, #{professionwlan,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{operdesc,jdbcType=VARCHAR}, #{isleader,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="sy.module.TawSystemUser" >
-    <selectKey keyProperty="id" resultType="java.lang.Long" order="BEFORE" >
-      select 
-      <include refid="TABLE_SEQUENCE" />
-       from dual
-    </selectKey>
+  <insert id="insertSelective" parameterType="com.boco.eoms.tawSystemUser.module.TawSystemUser" >
     insert into TAW_SYSTEM_USER
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -199,29 +286,167 @@
       <if test="ispartners != null" >
         ISPARTNERS,
       </if>
+      <if test="sip != null" >
+        SIP,
+      </if>
+      <if test="mainuser != null" >
+        MAINUSER,
+      </if>
+      <if test="transferredtime != null" >
+        TRANSFERREDTIME,
+      </if>
+      <if test="inspecialtytime != null" >
+        INSPECIALTYTIME,
+      </if>
+      <if test="worktime != null" >
+        WORKTIME,
+      </if>
+      <if test="specialty != null" >
+        SPECIALTY,
+      </if>
+      <if test="joblevel != null" >
+        JOBLEVEL,
+      </if>
+      <if test="jobname != null" >
+        JOBNAME,
+      </if>
+      <if test="languageability != null" >
+        LANGUAGEABILITY,
+      </if>
+      <if test="highesteducation != null" >
+        HIGHESTEDUCATION,
+      </if>
+      <if test="firsteducation != null" >
+        FIRSTEDUCATION,
+      </if>
+      <if test="birthdate != null" >
+        BIRTHDATE,
+      </if>
+      <if test="staffnature != null" >
+        STAFFNATURE,
+      </if>
+      <if test="nation != null" >
+        NATION,
+      </if>
+      <if test="centerdept != null" >
+        CENTERDEPT,
+      </if>
+      <if test="userno != null" >
+        USERNO,
+      </if>
+      <if test="userLevel != null" >
+        USER_LEVEL,
+      </if>
+      <if test="higherLeveluser != null" >
+        HIGHER_LEVELUSER,
+      </if>
+      <if test="isareaadmin != null" >
+        ISAREAADMIN,
+      </if>
+      <if test="areaname != null" >
+        AREANAME,
+      </if>
+      <if test="areaid != null" >
+        AREAID,
+      </if>
+      <if test="photo != null" >
+        PHOTO,
+      </if>
       <if test="centername != null" >
         CENTERNAME,
       </if>
       <if test="centerid != null" >
         CENTERID,
       </if>
-      <if test="postuser != null" >
-        POSTUSER,
+      <if test="emergencycontact != null" >
+        EMERGENCYCONTACT,
       </if>
-      <if test="posttype != null" >
-        POSTTYPE,
+      <if test="specialattribute != null" >
+        SPECIALATTRIBUTE,
       </if>
-      <if test="parentleader != null" >
-        PARENTLEADER,
+      <if test="attribute1 != null" >
+        ATTRIBUTE1,
       </if>
-      <if test="stafftype != null" >
-        STAFFTYPE,
+      <if test="attribute2 != null" >
+        ATTRIBUTE2,
       </if>
-      <if test="parentleadername != null" >
-        PARENTLEADERNAME,
+      <if test="attribute3 != null" >
+        ATTRIBUTE3,
+      </if>
+      <if test="attribute4 != null" >
+        ATTRIBUTE4,
+      </if>
+      <if test="attribute5 != null" >
+        ATTRIBUTE5,
       </if>
       <if test="position != null" >
         POSITION,
+      </if>
+      <if test="createflag != null" >
+        CREATEFLAG,
+      </if>
+      <if test="daiweiuserid != null" >
+        DAIWEIUSERID,
+      </if>
+      <if test="provinceid != null" >
+        PROVINCEID,
+      </if>
+      <if test="cityid != null" >
+        CITYID,
+      </if>
+      <if test="daiweiflag != null" >
+        DAIWEIFLAG,
+      </if>
+      <if test="userpositionrole != null" >
+        USERPOSITIONROLE,
+      </if>
+      <if test="profession != null" >
+        PROFESSION,
+      </if>
+      <if test="business != null" >
+        BUSINESS,
+      </if>
+      <if test="countryid != null" >
+        COUNTRYID,
+      </if>
+      <if test="cityname != null" >
+        CITYNAME,
+      </if>
+      <if test="countryname != null" >
+        COUNTRYNAME,
+      </if>
+      <if test="employeenumber != null" >
+        EMPLOYEENUMBER,
+      </if>
+      <if test="newdeptid != null" >
+        NEWDEPTID,
+      </if>
+      <if test="positionid != null" >
+        POSITIONID,
+      </if>
+      <if test="professionwire != null" >
+        PROFESSIONWIRE,
+      </if>
+      <if test="professionrotate != null" >
+        PROFESSIONROTATE,
+      </if>
+      <if test="professiontrans != null" >
+        PROFESSIONTRANS,
+      </if>
+      <if test="professionstation != null" >
+        PROFESSIONSTATION,
+      </if>
+      <if test="professionwlan != null" >
+        PROFESSIONWLAN,
+      </if>
+      <if test="company != null" >
+        COMPANY,
+      </if>
+      <if test="operdesc != null" >
+        OPERDESC,
+      </if>
+      <if test="isleader != null" >
+        ISLEADER,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -324,33 +549,171 @@
       <if test="ispartners != null" >
         #{ispartners,jdbcType=VARCHAR},
       </if>
+      <if test="sip != null" >
+        #{sip,jdbcType=VARCHAR},
+      </if>
+      <if test="mainuser != null" >
+        #{mainuser,jdbcType=VARCHAR},
+      </if>
+      <if test="transferredtime != null" >
+        #{transferredtime,jdbcType=VARCHAR},
+      </if>
+      <if test="inspecialtytime != null" >
+        #{inspecialtytime,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null" >
+        #{worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="specialty != null" >
+        #{specialty,jdbcType=VARCHAR},
+      </if>
+      <if test="joblevel != null" >
+        #{joblevel,jdbcType=VARCHAR},
+      </if>
+      <if test="jobname != null" >
+        #{jobname,jdbcType=VARCHAR},
+      </if>
+      <if test="languageability != null" >
+        #{languageability,jdbcType=VARCHAR},
+      </if>
+      <if test="highesteducation != null" >
+        #{highesteducation,jdbcType=VARCHAR},
+      </if>
+      <if test="firsteducation != null" >
+        #{firsteducation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="staffnature != null" >
+        #{staffnature,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="centerdept != null" >
+        #{centerdept,jdbcType=VARCHAR},
+      </if>
+      <if test="userno != null" >
+        #{userno,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        #{userLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="higherLeveluser != null" >
+        #{higherLeveluser,jdbcType=VARCHAR},
+      </if>
+      <if test="isareaadmin != null" >
+        #{isareaadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
       <if test="centername != null" >
         #{centername,jdbcType=VARCHAR},
       </if>
       <if test="centerid != null" >
         #{centerid,jdbcType=VARCHAR},
       </if>
-      <if test="postuser != null" >
-        #{postuser,jdbcType=VARCHAR},
+      <if test="emergencycontact != null" >
+        #{emergencycontact,jdbcType=VARCHAR},
       </if>
-      <if test="posttype != null" >
-        #{posttype,jdbcType=VARCHAR},
+      <if test="specialattribute != null" >
+        #{specialattribute,jdbcType=VARCHAR},
       </if>
-      <if test="parentleader != null" >
-        #{parentleader,jdbcType=VARCHAR},
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
       </if>
-      <if test="stafftype != null" >
-        #{stafftype,jdbcType=VARCHAR},
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
       </if>
-      <if test="parentleadername != null" >
-        #{parentleadername,jdbcType=VARCHAR},
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null" >
+        #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null" >
+        #{attribute5,jdbcType=VARCHAR},
       </if>
       <if test="position != null" >
         #{position,jdbcType=VARCHAR},
       </if>
+      <if test="createflag != null" >
+        #{createflag,jdbcType=VARCHAR},
+      </if>
+      <if test="daiweiuserid != null" >
+        #{daiweiuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        #{provinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="daiweiflag != null" >
+        #{daiweiflag,jdbcType=VARCHAR},
+      </if>
+      <if test="userpositionrole != null" >
+        #{userpositionrole,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null" >
+        #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="countryid != null" >
+        #{countryid,jdbcType=VARCHAR},
+      </if>
+      <if test="cityname != null" >
+        #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="countryname != null" >
+        #{countryname,jdbcType=VARCHAR},
+      </if>
+      <if test="employeenumber != null" >
+        #{employeenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="newdeptid != null" >
+        #{newdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="positionid != null" >
+        #{positionid,jdbcType=VARCHAR},
+      </if>
+      <if test="professionwire != null" >
+        #{professionwire,jdbcType=VARCHAR},
+      </if>
+      <if test="professionrotate != null" >
+        #{professionrotate,jdbcType=VARCHAR},
+      </if>
+      <if test="professiontrans != null" >
+        #{professiontrans,jdbcType=VARCHAR},
+      </if>
+      <if test="professionstation != null" >
+        #{professionstation,jdbcType=VARCHAR},
+      </if>
+      <if test="professionwlan != null" >
+        #{professionwlan,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="operdesc != null" >
+        #{operdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="isleader != null" >
+        #{isleader,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="sy.module.TawSystemUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.tawSystemUser.module.TawSystemUser" >
     update TAW_SYSTEM_USER
     <set >
       <if test="cptroomid != null" >
@@ -449,34 +812,172 @@
       <if test="ispartners != null" >
         ISPARTNERS = #{ispartners,jdbcType=VARCHAR},
       </if>
+      <if test="sip != null" >
+        SIP = #{sip,jdbcType=VARCHAR},
+      </if>
+      <if test="mainuser != null" >
+        MAINUSER = #{mainuser,jdbcType=VARCHAR},
+      </if>
+      <if test="transferredtime != null" >
+        TRANSFERREDTIME = #{transferredtime,jdbcType=VARCHAR},
+      </if>
+      <if test="inspecialtytime != null" >
+        INSPECIALTYTIME = #{inspecialtytime,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null" >
+        WORKTIME = #{worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="specialty != null" >
+        SPECIALTY = #{specialty,jdbcType=VARCHAR},
+      </if>
+      <if test="joblevel != null" >
+        JOBLEVEL = #{joblevel,jdbcType=VARCHAR},
+      </if>
+      <if test="jobname != null" >
+        JOBNAME = #{jobname,jdbcType=VARCHAR},
+      </if>
+      <if test="languageability != null" >
+        LANGUAGEABILITY = #{languageability,jdbcType=VARCHAR},
+      </if>
+      <if test="highesteducation != null" >
+        HIGHESTEDUCATION = #{highesteducation,jdbcType=VARCHAR},
+      </if>
+      <if test="firsteducation != null" >
+        FIRSTEDUCATION = #{firsteducation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        BIRTHDATE = #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="staffnature != null" >
+        STAFFNATURE = #{staffnature,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        NATION = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="centerdept != null" >
+        CENTERDEPT = #{centerdept,jdbcType=VARCHAR},
+      </if>
+      <if test="userno != null" >
+        USERNO = #{userno,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        USER_LEVEL = #{userLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="higherLeveluser != null" >
+        HIGHER_LEVELUSER = #{higherLeveluser,jdbcType=VARCHAR},
+      </if>
+      <if test="isareaadmin != null" >
+        ISAREAADMIN = #{isareaadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        AREANAME = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        AREAID = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        PHOTO = #{photo,jdbcType=VARCHAR},
+      </if>
       <if test="centername != null" >
         CENTERNAME = #{centername,jdbcType=VARCHAR},
       </if>
       <if test="centerid != null" >
         CENTERID = #{centerid,jdbcType=VARCHAR},
       </if>
-      <if test="postuser != null" >
-        POSTUSER = #{postuser,jdbcType=VARCHAR},
+      <if test="emergencycontact != null" >
+        EMERGENCYCONTACT = #{emergencycontact,jdbcType=VARCHAR},
       </if>
-      <if test="posttype != null" >
-        POSTTYPE = #{posttype,jdbcType=VARCHAR},
+      <if test="specialattribute != null" >
+        SPECIALATTRIBUTE = #{specialattribute,jdbcType=VARCHAR},
       </if>
-      <if test="parentleader != null" >
-        PARENTLEADER = #{parentleader,jdbcType=VARCHAR},
+      <if test="attribute1 != null" >
+        ATTRIBUTE1 = #{attribute1,jdbcType=VARCHAR},
       </if>
-      <if test="stafftype != null" >
-        STAFFTYPE = #{stafftype,jdbcType=VARCHAR},
+      <if test="attribute2 != null" >
+        ATTRIBUTE2 = #{attribute2,jdbcType=VARCHAR},
       </if>
-      <if test="parentleadername != null" >
-        PARENTLEADERNAME = #{parentleadername,jdbcType=VARCHAR},
+      <if test="attribute3 != null" >
+        ATTRIBUTE3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null" >
+        ATTRIBUTE4 = #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null" >
+        ATTRIBUTE5 = #{attribute5,jdbcType=VARCHAR},
       </if>
       <if test="position != null" >
         POSITION = #{position,jdbcType=VARCHAR},
       </if>
+      <if test="createflag != null" >
+        CREATEFLAG = #{createflag,jdbcType=VARCHAR},
+      </if>
+      <if test="daiweiuserid != null" >
+        DAIWEIUSERID = #{daiweiuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        PROVINCEID = #{provinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        CITYID = #{cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="daiweiflag != null" >
+        DAIWEIFLAG = #{daiweiflag,jdbcType=VARCHAR},
+      </if>
+      <if test="userpositionrole != null" >
+        USERPOSITIONROLE = #{userpositionrole,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        PROFESSION = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null" >
+        BUSINESS = #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="countryid != null" >
+        COUNTRYID = #{countryid,jdbcType=VARCHAR},
+      </if>
+      <if test="cityname != null" >
+        CITYNAME = #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="countryname != null" >
+        COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
+      </if>
+      <if test="employeenumber != null" >
+        EMPLOYEENUMBER = #{employeenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="newdeptid != null" >
+        NEWDEPTID = #{newdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="positionid != null" >
+        POSITIONID = #{positionid,jdbcType=VARCHAR},
+      </if>
+      <if test="professionwire != null" >
+        PROFESSIONWIRE = #{professionwire,jdbcType=VARCHAR},
+      </if>
+      <if test="professionrotate != null" >
+        PROFESSIONROTATE = #{professionrotate,jdbcType=VARCHAR},
+      </if>
+      <if test="professiontrans != null" >
+        PROFESSIONTRANS = #{professiontrans,jdbcType=VARCHAR},
+      </if>
+      <if test="professionstation != null" >
+        PROFESSIONSTATION = #{professionstation,jdbcType=VARCHAR},
+      </if>
+      <if test="professionwlan != null" >
+        PROFESSIONWLAN = #{professionwlan,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        COMPANY = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="operdesc != null" >
+        OPERDESC = #{operdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="isleader != null" >
+        ISLEADER = #{isleader,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="sy.module.TawSystemUser" >
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.tawSystemUser.module.TawSystemUser" >
     update TAW_SYSTEM_USER
     set CPTROOMID = #{cptroomid,jdbcType=VARCHAR},
       CPTROOMNAME = #{cptroomname,jdbcType=VARCHAR},
@@ -510,14 +1011,60 @@
       FLAG = #{flag,jdbcType=DECIMAL},
       FAIL_COUNT = #{failCount,jdbcType=DECIMAL},
       ISPARTNERS = #{ispartners,jdbcType=VARCHAR},
+      SIP = #{sip,jdbcType=VARCHAR},
+      MAINUSER = #{mainuser,jdbcType=VARCHAR},
+      TRANSFERREDTIME = #{transferredtime,jdbcType=VARCHAR},
+      INSPECIALTYTIME = #{inspecialtytime,jdbcType=VARCHAR},
+      WORKTIME = #{worktime,jdbcType=VARCHAR},
+      SPECIALTY = #{specialty,jdbcType=VARCHAR},
+      JOBLEVEL = #{joblevel,jdbcType=VARCHAR},
+      JOBNAME = #{jobname,jdbcType=VARCHAR},
+      LANGUAGEABILITY = #{languageability,jdbcType=VARCHAR},
+      HIGHESTEDUCATION = #{highesteducation,jdbcType=VARCHAR},
+      FIRSTEDUCATION = #{firsteducation,jdbcType=VARCHAR},
+      BIRTHDATE = #{birthdate,jdbcType=VARCHAR},
+      STAFFNATURE = #{staffnature,jdbcType=VARCHAR},
+      NATION = #{nation,jdbcType=VARCHAR},
+      CENTERDEPT = #{centerdept,jdbcType=VARCHAR},
+      USERNO = #{userno,jdbcType=VARCHAR},
+      USER_LEVEL = #{userLevel,jdbcType=VARCHAR},
+      HIGHER_LEVELUSER = #{higherLeveluser,jdbcType=VARCHAR},
+      ISAREAADMIN = #{isareaadmin,jdbcType=VARCHAR},
+      AREANAME = #{areaname,jdbcType=VARCHAR},
+      AREAID = #{areaid,jdbcType=VARCHAR},
+      PHOTO = #{photo,jdbcType=VARCHAR},
       CENTERNAME = #{centername,jdbcType=VARCHAR},
       CENTERID = #{centerid,jdbcType=VARCHAR},
-      POSTUSER = #{postuser,jdbcType=VARCHAR},
-      POSTTYPE = #{posttype,jdbcType=VARCHAR},
-      PARENTLEADER = #{parentleader,jdbcType=VARCHAR},
-      STAFFTYPE = #{stafftype,jdbcType=VARCHAR},
-      PARENTLEADERNAME = #{parentleadername,jdbcType=VARCHAR},
-      POSITION = #{position,jdbcType=VARCHAR}
+      EMERGENCYCONTACT = #{emergencycontact,jdbcType=VARCHAR},
+      SPECIALATTRIBUTE = #{specialattribute,jdbcType=VARCHAR},
+      ATTRIBUTE1 = #{attribute1,jdbcType=VARCHAR},
+      ATTRIBUTE2 = #{attribute2,jdbcType=VARCHAR},
+      ATTRIBUTE3 = #{attribute3,jdbcType=VARCHAR},
+      ATTRIBUTE4 = #{attribute4,jdbcType=VARCHAR},
+      ATTRIBUTE5 = #{attribute5,jdbcType=VARCHAR},
+      POSITION = #{position,jdbcType=VARCHAR},
+      CREATEFLAG = #{createflag,jdbcType=VARCHAR},
+      DAIWEIUSERID = #{daiweiuserid,jdbcType=VARCHAR},
+      PROVINCEID = #{provinceid,jdbcType=VARCHAR},
+      CITYID = #{cityid,jdbcType=VARCHAR},
+      DAIWEIFLAG = #{daiweiflag,jdbcType=VARCHAR},
+      USERPOSITIONROLE = #{userpositionrole,jdbcType=VARCHAR},
+      PROFESSION = #{profession,jdbcType=VARCHAR},
+      BUSINESS = #{business,jdbcType=VARCHAR},
+      COUNTRYID = #{countryid,jdbcType=VARCHAR},
+      CITYNAME = #{cityname,jdbcType=VARCHAR},
+      COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
+      EMPLOYEENUMBER = #{employeenumber,jdbcType=VARCHAR},
+      NEWDEPTID = #{newdeptid,jdbcType=VARCHAR},
+      POSITIONID = #{positionid,jdbcType=VARCHAR},
+      PROFESSIONWIRE = #{professionwire,jdbcType=VARCHAR},
+      PROFESSIONROTATE = #{professionrotate,jdbcType=VARCHAR},
+      PROFESSIONTRANS = #{professiontrans,jdbcType=VARCHAR},
+      PROFESSIONSTATION = #{professionstation,jdbcType=VARCHAR},
+      PROFESSIONWLAN = #{professionwlan,jdbcType=VARCHAR},
+      COMPANY = #{company,jdbcType=VARCHAR},
+      OPERDESC = #{operdesc,jdbcType=VARCHAR},
+      ISLEADER = #{isleader,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
   <sql id="OracleDialectPrefix" >
@@ -533,16 +1080,16 @@
   <sql id="TABLE_SEQUENCE" >
     TAW_SYSTEM_USER_SEQUENCE.nextval
   </sql>
-  <insert id="insertBatch" parameterType="sy.module.TawSystemUser" >
+  <insert id="insertBatch" parameterType="com.boco.eoms.tawSystemUser.module.TawSystemUser" >
     insert into TAW_SYSTEM_USER
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      ID,CPTROOMID,CPTROOMNAME,DEPTID,DEPTNAME,EMAIL,FAMILYADDRESS,FAX,MOBILE,OPERUSERID,PHONE,REMARK,SEX,USERDEGREE,USERID,USERNAME,OPERREMOTIP,SAVETIME,UPDATETIME,ACCOUNT_ENABLED,ACCOUNT_EXPIRED,ACCOUNT_LOCKED,CREDENTIALS_EXPIRED,PASSWORD,POSTAL_CODE,DELETED,ISFULLEMPLOY,ISREST,USERSTATUS,PORTALROLENAME,FLAG,FAIL_COUNT,ISPARTNERS,CENTERNAME,CENTERID,POSTUSER,POSTTYPE,PARENTLEADER,STAFFTYPE,PARENTLEADERNAME,POSITION,
+      ID,CPTROOMID,CPTROOMNAME,DEPTID,DEPTNAME,EMAIL,FAMILYADDRESS,FAX,MOBILE,OPERUSERID,PHONE,REMARK,SEX,USERDEGREE,USERID,USERNAME,OPERREMOTIP,SAVETIME,UPDATETIME,ACCOUNT_ENABLED,ACCOUNT_EXPIRED,ACCOUNT_LOCKED,CREDENTIALS_EXPIRED,PASSWORD,POSTAL_CODE,DELETED,ISFULLEMPLOY,ISREST,USERSTATUS,PORTALROLENAME,FLAG,FAIL_COUNT,ISPARTNERS,SIP,MAINUSER,TRANSFERREDTIME,INSPECIALTYTIME,WORKTIME,SPECIALTY,JOBLEVEL,JOBNAME,LANGUAGEABILITY,HIGHESTEDUCATION,FIRSTEDUCATION,BIRTHDATE,STAFFNATURE,NATION,CENTERDEPT,USERNO,USER_LEVEL,HIGHER_LEVELUSER,ISAREAADMIN,AREANAME,AREAID,PHOTO,CENTERNAME,CENTERID,EMERGENCYCONTACT,SPECIALATTRIBUTE,ATTRIBUTE1,ATTRIBUTE2,ATTRIBUTE3,ATTRIBUTE4,ATTRIBUTE5,POSITION,CREATEFLAG,DAIWEIUSERID,PROVINCEID,CITYID,DAIWEIFLAG,USERPOSITIONROLE,PROFESSION,BUSINESS,COUNTRYID,CITYNAME,COUNTRYNAME,EMPLOYEENUMBER,NEWDEPTID,POSITIONID,PROFESSIONWIRE,PROFESSIONROTATE,PROFESSIONTRANS,PROFESSIONSTATION,PROFESSIONWLAN,COMPANY,OPERDESC,ISLEADER,
     </trim>
     select TAW_SYSTEM_USER_SEQUENCE.nextval,A.* from(
     <foreach collection="list" index="index" item="item" separator="UNION ALL" >
       SELECT
       <trim suffixOverrides="," >
-        #{item.cptroomid,jdbcType=VARCHAR},#{item.cptroomname,jdbcType=VARCHAR},#{item.deptid,jdbcType=VARCHAR},#{item.deptname,jdbcType=VARCHAR},#{item.email,jdbcType=VARCHAR},#{item.familyaddress,jdbcType=VARCHAR},#{item.fax,jdbcType=VARCHAR},#{item.mobile,jdbcType=VARCHAR},#{item.operuserid,jdbcType=VARCHAR},#{item.phone,jdbcType=VARCHAR},#{item.remark,jdbcType=VARCHAR},#{item.sex,jdbcType=VARCHAR},#{item.userdegree,jdbcType=VARCHAR},#{item.userid,jdbcType=VARCHAR},#{item.username,jdbcType=VARCHAR},#{item.operremotip,jdbcType=VARCHAR},#{item.savetime,jdbcType=DATE},#{item.updatetime,jdbcType=VARCHAR},#{item.accountEnabled,jdbcType=VARCHAR},#{item.accountExpired,jdbcType=VARCHAR},#{item.accountLocked,jdbcType=VARCHAR},#{item.credentialsExpired,jdbcType=VARCHAR},#{item.password,jdbcType=VARCHAR},#{item.postalCode,jdbcType=VARCHAR},#{item.deleted,jdbcType=VARCHAR},#{item.isfullemploy,jdbcType=VARCHAR},#{item.isrest,jdbcType=VARCHAR},#{item.userstatus,jdbcType=VARCHAR},#{item.portalrolename,jdbcType=VARCHAR},#{item.flag,jdbcType=DECIMAL},#{item.failCount,jdbcType=DECIMAL},#{item.ispartners,jdbcType=VARCHAR},#{item.centername,jdbcType=VARCHAR},#{item.centerid,jdbcType=VARCHAR},#{item.postuser,jdbcType=VARCHAR},#{item.posttype,jdbcType=VARCHAR},#{item.parentleader,jdbcType=VARCHAR},#{item.stafftype,jdbcType=VARCHAR},#{item.parentleadername,jdbcType=VARCHAR},#{item.position,jdbcType=VARCHAR},
+        #{item.id,jdbcType=VARCHAR},#{item.cptroomid,jdbcType=VARCHAR},#{item.cptroomname,jdbcType=VARCHAR},#{item.deptid,jdbcType=VARCHAR},#{item.deptname,jdbcType=VARCHAR},#{item.email,jdbcType=VARCHAR},#{item.familyaddress,jdbcType=VARCHAR},#{item.fax,jdbcType=VARCHAR},#{item.mobile,jdbcType=VARCHAR},#{item.operuserid,jdbcType=VARCHAR},#{item.phone,jdbcType=VARCHAR},#{item.remark,jdbcType=VARCHAR},#{item.sex,jdbcType=VARCHAR},#{item.userdegree,jdbcType=VARCHAR},#{item.userid,jdbcType=VARCHAR},#{item.username,jdbcType=VARCHAR},#{item.operremotip,jdbcType=VARCHAR},#{item.savetime,jdbcType=DATE},#{item.updatetime,jdbcType=VARCHAR},#{item.accountEnabled,jdbcType=VARCHAR},#{item.accountExpired,jdbcType=VARCHAR},#{item.accountLocked,jdbcType=VARCHAR},#{item.credentialsExpired,jdbcType=VARCHAR},#{item.password,jdbcType=VARCHAR},#{item.postalCode,jdbcType=VARCHAR},#{item.deleted,jdbcType=VARCHAR},#{item.isfullemploy,jdbcType=VARCHAR},#{item.isrest,jdbcType=VARCHAR},#{item.userstatus,jdbcType=VARCHAR},#{item.portalrolename,jdbcType=VARCHAR},#{item.flag,jdbcType=DECIMAL},#{item.failCount,jdbcType=DECIMAL},#{item.ispartners,jdbcType=VARCHAR},#{item.sip,jdbcType=VARCHAR},#{item.mainuser,jdbcType=VARCHAR},#{item.transferredtime,jdbcType=VARCHAR},#{item.inspecialtytime,jdbcType=VARCHAR},#{item.worktime,jdbcType=VARCHAR},#{item.specialty,jdbcType=VARCHAR},#{item.joblevel,jdbcType=VARCHAR},#{item.jobname,jdbcType=VARCHAR},#{item.languageability,jdbcType=VARCHAR},#{item.highesteducation,jdbcType=VARCHAR},#{item.firsteducation,jdbcType=VARCHAR},#{item.birthdate,jdbcType=VARCHAR},#{item.staffnature,jdbcType=VARCHAR},#{item.nation,jdbcType=VARCHAR},#{item.centerdept,jdbcType=VARCHAR},#{item.userno,jdbcType=VARCHAR},#{item.userLevel,jdbcType=VARCHAR},#{item.higherLeveluser,jdbcType=VARCHAR},#{item.isareaadmin,jdbcType=VARCHAR},#{item.areaname,jdbcType=VARCHAR},#{item.areaid,jdbcType=VARCHAR},#{item.photo,jdbcType=VARCHAR},#{item.centername,jdbcType=VARCHAR},#{item.centerid,jdbcType=VARCHAR},#{item.emergencycontact,jdbcType=VARCHAR},#{item.specialattribute,jdbcType=VARCHAR},#{item.attribute1,jdbcType=VARCHAR},#{item.attribute2,jdbcType=VARCHAR},#{item.attribute3,jdbcType=VARCHAR},#{item.attribute4,jdbcType=VARCHAR},#{item.attribute5,jdbcType=VARCHAR},#{item.position,jdbcType=VARCHAR},#{item.createflag,jdbcType=VARCHAR},#{item.daiweiuserid,jdbcType=VARCHAR},#{item.provinceid,jdbcType=VARCHAR},#{item.cityid,jdbcType=VARCHAR},#{item.daiweiflag,jdbcType=VARCHAR},#{item.userpositionrole,jdbcType=VARCHAR},#{item.profession,jdbcType=VARCHAR},#{item.business,jdbcType=VARCHAR},#{item.countryid,jdbcType=VARCHAR},#{item.cityname,jdbcType=VARCHAR},#{item.countryname,jdbcType=VARCHAR},#{item.employeenumber,jdbcType=VARCHAR},#{item.newdeptid,jdbcType=VARCHAR},#{item.positionid,jdbcType=VARCHAR},#{item.professionwire,jdbcType=VARCHAR},#{item.professionrotate,jdbcType=VARCHAR},#{item.professiontrans,jdbcType=VARCHAR},#{item.professionstation,jdbcType=VARCHAR},#{item.professionwlan,jdbcType=VARCHAR},#{item.company,jdbcType=VARCHAR},#{item.operdesc,jdbcType=VARCHAR},#{item.isleader,jdbcType=VARCHAR},
       </trim>
       from dual
     </foreach>

@@ -16,10 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.boco.eoms.auth.utils.AuthUtils;
-import com.boco.eoms.user.module.User;
-import com.boco.eoms.user.service.UserServiceI;
+import com.boco.eoms.tawSystemUser.module.TawSystemUser;
+import com.boco.eoms.tawSystemUser.service.TawSystemUserServiceI;
 import com.nimbusds.jose.JOSEException;
-
 
 public class AuthFilter implements Filter {
 	private ServletContext servletContext;
@@ -38,15 +37,15 @@ public class AuthFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		WebApplicationContext context = (WebApplicationContext) servletContext
 				.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-		UserServiceI userService = (UserServiceI) context.getBean("userService");
+		TawSystemUserServiceI userService = (TawSystemUserServiceI) context.getBean("tawSystemUserService");
 		System.out.println(request.getServletPath());
 		if ("/auth/login".equals(request.getServletPath())) {
 			chain.doFilter(req, res);
-		} else if("/websck".equals(request.getServletPath())){
+		} else if ("/websck".equals(request.getServletPath())) {
 			chain.doFilter(req, res);
-		}else if("/sock/send".equals(request.getServletPath())){
+		} else if ("/sock/send".equals(request.getServletPath())) {
 			chain.doFilter(req, res);
-		}else {
+		} else {
 			String authHeadKey = request.getHeader(AuthUtils.AUTH_HEADER_KEY);
 			System.out.println(authHeadKey);
 			if (authHeadKey != null) {
@@ -59,7 +58,7 @@ public class AuthFilter implements Filter {
 					e.printStackTrace();
 				}
 
-				User u = userService.getUserById(Long.parseLong(subject));
+				TawSystemUser u = userService.selectByUserid(subject);
 				System.out.println(u);
 				if (u != null) {
 					chain.doFilter(req, res);

@@ -35,9 +35,9 @@ public final class AuthUtils {
 		}
 	}
 	
-	public static Token createToken(String host, long sub) throws JOSEException {
+	public static Token createToken(String host, String sub) throws JOSEException {
 		JWTClaimsSet claim = new JWTClaimsSet();
-		claim.setSubject(Long.toString(sub));
+		claim.setSubject(sub);
 		claim.setIssuer(host);
 		claim.setIssueTime(DateTime.now().toDate());
 		claim.setExpirationTime(DateTime.now().plusDays(14).toDate());

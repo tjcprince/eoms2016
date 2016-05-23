@@ -71,7 +71,7 @@
 			          <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">  
 			             <property name="classesToBeBound">  
 			              <list>  
-			                 <value>com.boco.eoms.user.module.TestXmlModle</value>
+			                 <value>com.boco.eoms.tawSystemUser.module.TestXmlModle</value>
 			              </list>  
 			             </property>  
 			          </bean>  
