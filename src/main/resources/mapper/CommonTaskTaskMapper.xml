@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.sheet.commontask.dao.CommonTaskTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.sheet.commontask.module.CommonTaskTask" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TASKNAME" property="taskname" jdbcType="VARCHAR" />
+    <result column="TASKDISPLAYNAME" property="taskdisplayname" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="DATE" />
+    <result column="TASKSTATUS" property="taskstatus" jdbcType="VARCHAR" />
+    <result column="PROCESSID" property="processid" jdbcType="VARCHAR" />
+    <result column="SHEETKEY" property="sheetkey" jdbcType="VARCHAR" />
+    <result column="SHEETID" property="sheetid" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="ACCEPTTIMELIMIT" property="accepttimelimit" jdbcType="DATE" />
+    <result column="COMPLETETIMELIMIT" property="completetimelimit" jdbcType="DATE" />
+    <result column="OPERATEROLEID" property="operateroleid" jdbcType="VARCHAR" />
+    <result column="TASKOWNER" property="taskowner" jdbcType="VARCHAR" />
+    <result column="PRELINKID" property="prelinkid" jdbcType="VARCHAR" />
+    <result column="FLOWNAME" property="flowname" jdbcType="VARCHAR" />
+    <result column="CURRENTLINKID" property="currentlinkid" jdbcType="VARCHAR" />
+    <result column="OPERATETYPE" property="operatetype" jdbcType="VARCHAR" />
+    <result column="PARENTTASKID" property="parenttaskid" jdbcType="VARCHAR" />
+    <result column="SUBTASKDEALFALG" property="subtaskdealfalg" jdbcType="VARCHAR" />
+    <result column="IFWAITFORSUBTASK" property="ifwaitforsubtask" jdbcType="VARCHAR" />
+    <result column="SUBTASKFLAG" property="subtaskflag" jdbcType="VARCHAR" />
+    <result column="CREATEYEAR" property="createyear" jdbcType="DECIMAL" />
+    <result column="CREATEMONTH" property="createmonth" jdbcType="DECIMAL" />
+    <result column="CREATEDAY" property="createday" jdbcType="DECIMAL" />
+    <result column="SENDTIME" property="sendtime" jdbcType="DATE" />
+    <result column="PREDEALUSERID" property="predealuserid" jdbcType="VARCHAR" />
+    <result column="PREDEALDEPT" property="predealdept" jdbcType="VARCHAR" />
+    <result column="PARENTPROCESSNAME" property="parentprocessname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TASKNAME, TASKDISPLAYNAME, CREATETIME, TASKSTATUS, PROCESSID, SHEETKEY, SHEETID, 
+    TITLE, ACCEPTTIMELIMIT, COMPLETETIMELIMIT, OPERATEROLEID, TASKOWNER, PRELINKID, FLOWNAME, 
+    CURRENTLINKID, OPERATETYPE, PARENTTASKID, SUBTASKDEALFALG, IFWAITFORSUBTASK, SUBTASKFLAG, 
+    CREATEYEAR, CREATEMONTH, CREATEDAY, SENDTIME, PREDEALUSERID, PREDEALDEPT, PARENTPROCESSNAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from COMMONTASK_TASK
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from COMMONTASK_TASK
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskTask" >
+    insert into COMMONTASK_TASK (ID, TASKNAME, TASKDISPLAYNAME, 
+      CREATETIME, TASKSTATUS, PROCESSID, 
+      SHEETKEY, SHEETID, TITLE, 
+      ACCEPTTIMELIMIT, COMPLETETIMELIMIT, OPERATEROLEID, 
+      TASKOWNER, PRELINKID, FLOWNAME, 
+      CURRENTLINKID, OPERATETYPE, PARENTTASKID, 
+      SUBTASKDEALFALG, IFWAITFORSUBTASK, SUBTASKFLAG, 
+      CREATEYEAR, CREATEMONTH, CREATEDAY, 
+      SENDTIME, PREDEALUSERID, PREDEALDEPT, 
+      PARENTPROCESSNAME)
+    values (#{id,jdbcType=VARCHAR}, #{taskname,jdbcType=VARCHAR}, #{taskdisplayname,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=DATE}, #{taskstatus,jdbcType=VARCHAR}, #{processid,jdbcType=VARCHAR}, 
+      #{sheetkey,jdbcType=VARCHAR}, #{sheetid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{accepttimelimit,jdbcType=DATE}, #{completetimelimit,jdbcType=DATE}, #{operateroleid,jdbcType=VARCHAR}, 
+      #{taskowner,jdbcType=VARCHAR}, #{prelinkid,jdbcType=VARCHAR}, #{flowname,jdbcType=VARCHAR}, 
+      #{currentlinkid,jdbcType=VARCHAR}, #{operatetype,jdbcType=VARCHAR}, #{parenttaskid,jdbcType=VARCHAR}, 
+      #{subtaskdealfalg,jdbcType=VARCHAR}, #{ifwaitforsubtask,jdbcType=VARCHAR}, #{subtaskflag,jdbcType=VARCHAR}, 
+      #{createyear,jdbcType=DECIMAL}, #{createmonth,jdbcType=DECIMAL}, #{createday,jdbcType=DECIMAL}, 
+      #{sendtime,jdbcType=DATE}, #{predealuserid,jdbcType=VARCHAR}, #{predealdept,jdbcType=VARCHAR}, 
+      #{parentprocessname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskTask" >
+    insert into COMMONTASK_TASK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="taskname != null" >
+        TASKNAME,
+      </if>
+      <if test="taskdisplayname != null" >
+        TASKDISPLAYNAME,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="taskstatus != null" >
+        TASKSTATUS,
+      </if>
+      <if test="processid != null" >
+        PROCESSID,
+      </if>
+      <if test="sheetkey != null" >
+        SHEETKEY,
+      </if>
+      <if test="sheetid != null" >
+        SHEETID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="accepttimelimit != null" >
+        ACCEPTTIMELIMIT,
+      </if>
+      <if test="completetimelimit != null" >
+        COMPLETETIMELIMIT,
+      </if>
+      <if test="operateroleid != null" >
+        OPERATEROLEID,
+      </if>
+      <if test="taskowner != null" >
+        TASKOWNER,
+      </if>
+      <if test="prelinkid != null" >
+        PRELINKID,
+      </if>
+      <if test="flowname != null" >
+        FLOWNAME,
+      </if>
+      <if test="currentlinkid != null" >
+        CURRENTLINKID,
+      </if>
+      <if test="operatetype != null" >
+        OPERATETYPE,
+      </if>
+      <if test="parenttaskid != null" >
+        PARENTTASKID,
+      </if>
+      <if test="subtaskdealfalg != null" >
+        SUBTASKDEALFALG,
+      </if>
+      <if test="ifwaitforsubtask != null" >
+        IFWAITFORSUBTASK,
+      </if>
+      <if test="subtaskflag != null" >
+        SUBTASKFLAG,
+      </if>
+      <if test="createyear != null" >
+        CREATEYEAR,
+      </if>
+      <if test="createmonth != null" >
+        CREATEMONTH,
+      </if>
+      <if test="createday != null" >
+        CREATEDAY,
+      </if>
+      <if test="sendtime != null" >
+        SENDTIME,
+      </if>
+      <if test="predealuserid != null" >
+        PREDEALUSERID,
+      </if>
+      <if test="predealdept != null" >
+        PREDEALDEPT,
+      </if>
+      <if test="parentprocessname != null" >
+        PARENTPROCESSNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="taskdisplayname != null" >
+        #{taskdisplayname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="taskstatus != null" >
+        #{taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="processid != null" >
+        #{processid,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetkey != null" >
+        #{sheetkey,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetid != null" >
+        #{sheetid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="accepttimelimit != null" >
+        #{accepttimelimit,jdbcType=DATE},
+      </if>
+      <if test="completetimelimit != null" >
+        #{completetimelimit,jdbcType=DATE},
+      </if>
+      <if test="operateroleid != null" >
+        #{operateroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskowner != null" >
+        #{taskowner,jdbcType=VARCHAR},
+      </if>
+      <if test="prelinkid != null" >
+        #{prelinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="flowname != null" >
+        #{flowname,jdbcType=VARCHAR},
+      </if>
+      <if test="currentlinkid != null" >
+        #{currentlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetype != null" >
+        #{operatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="parenttaskid != null" >
+        #{parenttaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="subtaskdealfalg != null" >
+        #{subtaskdealfalg,jdbcType=VARCHAR},
+      </if>
+      <if test="ifwaitforsubtask != null" >
+        #{ifwaitforsubtask,jdbcType=VARCHAR},
+      </if>
+      <if test="subtaskflag != null" >
+        #{subtaskflag,jdbcType=VARCHAR},
+      </if>
+      <if test="createyear != null" >
+        #{createyear,jdbcType=DECIMAL},
+      </if>
+      <if test="createmonth != null" >
+        #{createmonth,jdbcType=DECIMAL},
+      </if>
+      <if test="createday != null" >
+        #{createday,jdbcType=DECIMAL},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=DATE},
+      </if>
+      <if test="predealuserid != null" >
+        #{predealuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="predealdept != null" >
+        #{predealdept,jdbcType=VARCHAR},
+      </if>
+      <if test="parentprocessname != null" >
+        #{parentprocessname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskTask" >
+    update COMMONTASK_TASK
+    <set >
+      <if test="taskname != null" >
+        TASKNAME = #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="taskdisplayname != null" >
+        TASKDISPLAYNAME = #{taskdisplayname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="taskstatus != null" >
+        TASKSTATUS = #{taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="processid != null" >
+        PROCESSID = #{processid,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetkey != null" >
+        SHEETKEY = #{sheetkey,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetid != null" >
+        SHEETID = #{sheetid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="accepttimelimit != null" >
+        ACCEPTTIMELIMIT = #{accepttimelimit,jdbcType=DATE},
+      </if>
+      <if test="completetimelimit != null" >
+        COMPLETETIMELIMIT = #{completetimelimit,jdbcType=DATE},
+      </if>
+      <if test="operateroleid != null" >
+        OPERATEROLEID = #{operateroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskowner != null" >
+        TASKOWNER = #{taskowner,jdbcType=VARCHAR},
+      </if>
+      <if test="prelinkid != null" >
+        PRELINKID = #{prelinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="flowname != null" >
+        FLOWNAME = #{flowname,jdbcType=VARCHAR},
+      </if>
+      <if test="currentlinkid != null" >
+        CURRENTLINKID = #{currentlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetype != null" >
+        OPERATETYPE = #{operatetype,jdbcType=VARCHAR},
+      </if>
+      <if test="parenttaskid != null" >
+        PARENTTASKID = #{parenttaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="subtaskdealfalg != null" >
+        SUBTASKDEALFALG = #{subtaskdealfalg,jdbcType=VARCHAR},
+      </if>
+      <if test="ifwaitforsubtask != null" >
+        IFWAITFORSUBTASK = #{ifwaitforsubtask,jdbcType=VARCHAR},
+      </if>
+      <if test="subtaskflag != null" >
+        SUBTASKFLAG = #{subtaskflag,jdbcType=VARCHAR},
+      </if>
+      <if test="createyear != null" >
+        CREATEYEAR = #{createyear,jdbcType=DECIMAL},
+      </if>
+      <if test="createmonth != null" >
+        CREATEMONTH = #{createmonth,jdbcType=DECIMAL},
+      </if>
+      <if test="createday != null" >
+        CREATEDAY = #{createday,jdbcType=DECIMAL},
+      </if>
+      <if test="sendtime != null" >
+        SENDTIME = #{sendtime,jdbcType=DATE},
+      </if>
+      <if test="predealuserid != null" >
+        PREDEALUSERID = #{predealuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="predealdept != null" >
+        PREDEALDEPT = #{predealdept,jdbcType=VARCHAR},
+      </if>
+      <if test="parentprocessname != null" >
+        PARENTPROCESSNAME = #{parentprocessname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskTask" >
+    update COMMONTASK_TASK
+    set TASKNAME = #{taskname,jdbcType=VARCHAR},
+      TASKDISPLAYNAME = #{taskdisplayname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=DATE},
+      TASKSTATUS = #{taskstatus,jdbcType=VARCHAR},
+      PROCESSID = #{processid,jdbcType=VARCHAR},
+      SHEETKEY = #{sheetkey,jdbcType=VARCHAR},
+      SHEETID = #{sheetid,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      ACCEPTTIMELIMIT = #{accepttimelimit,jdbcType=DATE},
+      COMPLETETIMELIMIT = #{completetimelimit,jdbcType=DATE},
+      OPERATEROLEID = #{operateroleid,jdbcType=VARCHAR},
+      TASKOWNER = #{taskowner,jdbcType=VARCHAR},
+      PRELINKID = #{prelinkid,jdbcType=VARCHAR},
+      FLOWNAME = #{flowname,jdbcType=VARCHAR},
+      CURRENTLINKID = #{currentlinkid,jdbcType=VARCHAR},
+      OPERATETYPE = #{operatetype,jdbcType=VARCHAR},
+      PARENTTASKID = #{parenttaskid,jdbcType=VARCHAR},
+      SUBTASKDEALFALG = #{subtaskdealfalg,jdbcType=VARCHAR},
+      IFWAITFORSUBTASK = #{ifwaitforsubtask,jdbcType=VARCHAR},
+      SUBTASKFLAG = #{subtaskflag,jdbcType=VARCHAR},
+      CREATEYEAR = #{createyear,jdbcType=DECIMAL},
+      CREATEMONTH = #{createmonth,jdbcType=DECIMAL},
+      CREATEDAY = #{createday,jdbcType=DECIMAL},
+      SENDTIME = #{sendtime,jdbcType=DATE},
+      PREDEALUSERID = #{predealuserid,jdbcType=VARCHAR},
+      PREDEALDEPT = #{predealdept,jdbcType=VARCHAR},
+      PARENTPROCESSNAME = #{parentprocessname,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <sql id="OracleDialectPrefix" >
+    <if test="pageHelper != null" >
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix" >
+    <if test="pageHelper != null" >
+      <![CDATA[ ) row_  where rownum <= #{pageHelper.end} ) where rownum_ > #{pageHelper.begin}  ]]>
+    </if>
+  </sql>
+  <sql id="TABLE_SEQUENCE" >
+    COMMONTASK_TASK_SEQUENCE.nextval
+  </sql>
+  <insert id="insertBatch" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskTask" >
+    insert into COMMONTASK_TASK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,TASKNAME,TASKDISPLAYNAME,CREATETIME,TASKSTATUS,PROCESSID,SHEETKEY,SHEETID,TITLE,ACCEPTTIMELIMIT,COMPLETETIMELIMIT,OPERATEROLEID,TASKOWNER,PRELINKID,FLOWNAME,CURRENTLINKID,OPERATETYPE,PARENTTASKID,SUBTASKDEALFALG,IFWAITFORSUBTASK,SUBTASKFLAG,CREATEYEAR,CREATEMONTH,CREATEDAY,SENDTIME,PREDEALUSERID,PREDEALDEPT,PARENTPROCESSNAME,
+    </trim>
+    select COMMONTASK_TASK_SEQUENCE.nextval,A.* from(
+    <foreach collection="list" index="index" item="item" separator="UNION ALL" >
+      SELECT
+      <trim suffixOverrides="," >
+        #{item.id,jdbcType=VARCHAR},#{item.taskname,jdbcType=VARCHAR},#{item.taskdisplayname,jdbcType=VARCHAR},#{item.createtime,jdbcType=DATE},#{item.taskstatus,jdbcType=VARCHAR},#{item.processid,jdbcType=VARCHAR},#{item.sheetkey,jdbcType=VARCHAR},#{item.sheetid,jdbcType=VARCHAR},#{item.title,jdbcType=VARCHAR},#{item.accepttimelimit,jdbcType=DATE},#{item.completetimelimit,jdbcType=DATE},#{item.operateroleid,jdbcType=VARCHAR},#{item.taskowner,jdbcType=VARCHAR},#{item.prelinkid,jdbcType=VARCHAR},#{item.flowname,jdbcType=VARCHAR},#{item.currentlinkid,jdbcType=VARCHAR},#{item.operatetype,jdbcType=VARCHAR},#{item.parenttaskid,jdbcType=VARCHAR},#{item.subtaskdealfalg,jdbcType=VARCHAR},#{item.ifwaitforsubtask,jdbcType=VARCHAR},#{item.subtaskflag,jdbcType=VARCHAR},#{item.createyear,jdbcType=DECIMAL},#{item.createmonth,jdbcType=DECIMAL},#{item.createday,jdbcType=DECIMAL},#{item.sendtime,jdbcType=DATE},#{item.predealuserid,jdbcType=VARCHAR},#{item.predealdept,jdbcType=VARCHAR},#{item.parentprocessname,jdbcType=VARCHAR},
+      </trim>
+      from dual
+    </foreach>
+    ) A
+  </insert>
+</mapper>

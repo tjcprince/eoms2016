@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.sheet.commontask.dao.CommonTaskLinkMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.sheet.commontask.module.CommonTaskLink" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MAINID" property="mainid" jdbcType="VARCHAR" />
+    <result column="NODEACCEPTLIMIT" property="nodeacceptlimit" jdbcType="DATE" />
+    <result column="NODECOMPLETELIMIT" property="nodecompletelimit" jdbcType="DATE" />
+    <result column="OPERATETYPE" property="operatetype" jdbcType="DECIMAL" />
+    <result column="OPERATETIME" property="operatetime" jdbcType="DATE" />
+    <result column="OPERATEUSERID" property="operateuserid" jdbcType="VARCHAR" />
+    <result column="OPERATEORGTYPE" property="operateorgtype" jdbcType="VARCHAR" />
+    <result column="TOORGTYPE" property="toorgtype" jdbcType="DECIMAL" />
+    <result column="TOORGUSERID" property="toorguserid" jdbcType="VARCHAR" />
+    <result column="TOROLEID" property="toroleid" jdbcType="DECIMAL" />
+    <result column="ACCEPTFLAG" property="acceptflag" jdbcType="DECIMAL" />
+    <result column="ACCEPTTIME" property="accepttime" jdbcType="DATE" />
+    <result column="COMPLETEFLAG" property="completeflag" jdbcType="DECIMAL" />
+    <result column="COMPLETETIME" property="completetime" jdbcType="DATE" />
+    <result column="PRELINKID" property="prelinkid" jdbcType="VARCHAR" />
+    <result column="PARENTLINKID" property="parentlinkid" jdbcType="VARCHAR" />
+    <result column="FIRSTLINKID" property="firstlinkid" jdbcType="VARCHAR" />
+    <result column="PIID" property="piid" jdbcType="VARCHAR" />
+    <result column="AIID" property="aiid" jdbcType="VARCHAR" />
+    <result column="ACTIVETEMPLATEID" property="activetemplateid" jdbcType="VARCHAR" />
+    <result column="NODETEMPLATENAME" property="nodetemplatename" jdbcType="VARCHAR" />
+    <result column="NODEACCESSORIES" property="nodeaccessories" jdbcType="VARCHAR" />
+    <result column="TOORGDEPTID" property="toorgdeptid" jdbcType="VARCHAR" />
+    <result column="TOORGROLEID" property="toorgroleid" jdbcType="VARCHAR" />
+    <result column="OPERATEROLEID" property="operateroleid" jdbcType="VARCHAR" />
+    <result column="OPERATEDEPTID" property="operatedeptid" jdbcType="VARCHAR" />
+    <result column="CORRELATIONKEY" property="correlationkey" jdbcType="VARCHAR" />
+    <result column="TEMPLATEFLAG" property="templateflag" jdbcType="VARCHAR" />
+    <result column="TEMPLATENAME" property="templatename" jdbcType="VARCHAR" />
+    <result column="TEMPLATECREATEUSERID" property="templatecreateuserid" jdbcType="VARCHAR" />
+    <result column="LINKAUDITRESULT" property="linkauditresult" jdbcType="VARCHAR" />
+    <result column="LINKAUDITIDEA" property="linkauditidea" jdbcType="VARCHAR" />
+    <result column="LINKTASKCOMPLETE" property="linktaskcomplete" jdbcType="CHAR" />
+    <result column="OPERATERCONTACT" property="operatercontact" jdbcType="VARCHAR" />
+    <result column="OPERATEYEAR" property="operateyear" jdbcType="DECIMAL" />
+    <result column="OPERATEMONTH" property="operatemonth" jdbcType="DECIMAL" />
+    <result column="OPERATEDAY" property="operateday" jdbcType="DECIMAL" />
+    <result column="TRANSFERREASON" property="transferreason" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, MAINID, NODEACCEPTLIMIT, NODECOMPLETELIMIT, OPERATETYPE, OPERATETIME, OPERATEUSERID, 
+    OPERATEORGTYPE, TOORGTYPE, TOORGUSERID, TOROLEID, ACCEPTFLAG, ACCEPTTIME, COMPLETEFLAG, 
+    COMPLETETIME, PRELINKID, PARENTLINKID, FIRSTLINKID, PIID, AIID, ACTIVETEMPLATEID, 
+    NODETEMPLATENAME, NODEACCESSORIES, TOORGDEPTID, TOORGROLEID, OPERATEROLEID, OPERATEDEPTID, 
+    CORRELATIONKEY, TEMPLATEFLAG, TEMPLATENAME, TEMPLATECREATEUSERID, LINKAUDITRESULT, 
+    LINKAUDITIDEA, LINKTASKCOMPLETE, OPERATERCONTACT, OPERATEYEAR, OPERATEMONTH, OPERATEDAY, 
+    TRANSFERREASON, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from COMMONTASK_LINK
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from COMMONTASK_LINK
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskLink" >
+    insert into COMMONTASK_LINK (ID, MAINID, NODEACCEPTLIMIT, 
+      NODECOMPLETELIMIT, OPERATETYPE, OPERATETIME, 
+      OPERATEUSERID, OPERATEORGTYPE, TOORGTYPE, 
+      TOORGUSERID, TOROLEID, ACCEPTFLAG, 
+      ACCEPTTIME, COMPLETEFLAG, COMPLETETIME, 
+      PRELINKID, PARENTLINKID, FIRSTLINKID, 
+      PIID, AIID, ACTIVETEMPLATEID, 
+      NODETEMPLATENAME, NODEACCESSORIES, TOORGDEPTID, 
+      TOORGROLEID, OPERATEROLEID, OPERATEDEPTID, 
+      CORRELATIONKEY, TEMPLATEFLAG, TEMPLATENAME, 
+      TEMPLATECREATEUSERID, LINKAUDITRESULT, 
+      LINKAUDITIDEA, LINKTASKCOMPLETE, OPERATERCONTACT, 
+      OPERATEYEAR, OPERATEMONTH, OPERATEDAY, 
+      TRANSFERREASON, REMARK)
+    values (#{id,jdbcType=VARCHAR}, #{mainid,jdbcType=VARCHAR}, #{nodeacceptlimit,jdbcType=DATE}, 
+      #{nodecompletelimit,jdbcType=DATE}, #{operatetype,jdbcType=DECIMAL}, #{operatetime,jdbcType=DATE}, 
+      #{operateuserid,jdbcType=VARCHAR}, #{operateorgtype,jdbcType=VARCHAR}, #{toorgtype,jdbcType=DECIMAL}, 
+      #{toorguserid,jdbcType=VARCHAR}, #{toroleid,jdbcType=DECIMAL}, #{acceptflag,jdbcType=DECIMAL}, 
+      #{accepttime,jdbcType=DATE}, #{completeflag,jdbcType=DECIMAL}, #{completetime,jdbcType=DATE}, 
+      #{prelinkid,jdbcType=VARCHAR}, #{parentlinkid,jdbcType=VARCHAR}, #{firstlinkid,jdbcType=VARCHAR}, 
+      #{piid,jdbcType=VARCHAR}, #{aiid,jdbcType=VARCHAR}, #{activetemplateid,jdbcType=VARCHAR}, 
+      #{nodetemplatename,jdbcType=VARCHAR}, #{nodeaccessories,jdbcType=VARCHAR}, #{toorgdeptid,jdbcType=VARCHAR}, 
+      #{toorgroleid,jdbcType=VARCHAR}, #{operateroleid,jdbcType=VARCHAR}, #{operatedeptid,jdbcType=VARCHAR}, 
+      #{correlationkey,jdbcType=VARCHAR}, #{templateflag,jdbcType=VARCHAR}, #{templatename,jdbcType=VARCHAR}, 
+      #{templatecreateuserid,jdbcType=VARCHAR}, #{linkauditresult,jdbcType=VARCHAR}, 
+      #{linkauditidea,jdbcType=VARCHAR}, #{linktaskcomplete,jdbcType=CHAR}, #{operatercontact,jdbcType=VARCHAR}, 
+      #{operateyear,jdbcType=DECIMAL}, #{operatemonth,jdbcType=DECIMAL}, #{operateday,jdbcType=DECIMAL}, 
+      #{transferreason,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskLink" >
+    insert into COMMONTASK_LINK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="mainid != null" >
+        MAINID,
+      </if>
+      <if test="nodeacceptlimit != null" >
+        NODEACCEPTLIMIT,
+      </if>
+      <if test="nodecompletelimit != null" >
+        NODECOMPLETELIMIT,
+      </if>
+      <if test="operatetype != null" >
+        OPERATETYPE,
+      </if>
+      <if test="operatetime != null" >
+        OPERATETIME,
+      </if>
+      <if test="operateuserid != null" >
+        OPERATEUSERID,
+      </if>
+      <if test="operateorgtype != null" >
+        OPERATEORGTYPE,
+      </if>
+      <if test="toorgtype != null" >
+        TOORGTYPE,
+      </if>
+      <if test="toorguserid != null" >
+        TOORGUSERID,
+      </if>
+      <if test="toroleid != null" >
+        TOROLEID,
+      </if>
+      <if test="acceptflag != null" >
+        ACCEPTFLAG,
+      </if>
+      <if test="accepttime != null" >
+        ACCEPTTIME,
+      </if>
+      <if test="completeflag != null" >
+        COMPLETEFLAG,
+      </if>
+      <if test="completetime != null" >
+        COMPLETETIME,
+      </if>
+      <if test="prelinkid != null" >
+        PRELINKID,
+      </if>
+      <if test="parentlinkid != null" >
+        PARENTLINKID,
+      </if>
+      <if test="firstlinkid != null" >
+        FIRSTLINKID,
+      </if>
+      <if test="piid != null" >
+        PIID,
+      </if>
+      <if test="aiid != null" >
+        AIID,
+      </if>
+      <if test="activetemplateid != null" >
+        ACTIVETEMPLATEID,
+      </if>
+      <if test="nodetemplatename != null" >
+        NODETEMPLATENAME,
+      </if>
+      <if test="nodeaccessories != null" >
+        NODEACCESSORIES,
+      </if>
+      <if test="toorgdeptid != null" >
+        TOORGDEPTID,
+      </if>
+      <if test="toorgroleid != null" >
+        TOORGROLEID,
+      </if>
+      <if test="operateroleid != null" >
+        OPERATEROLEID,
+      </if>
+      <if test="operatedeptid != null" >
+        OPERATEDEPTID,
+      </if>
+      <if test="correlationkey != null" >
+        CORRELATIONKEY,
+      </if>
+      <if test="templateflag != null" >
+        TEMPLATEFLAG,
+      </if>
+      <if test="templatename != null" >
+        TEMPLATENAME,
+      </if>
+      <if test="templatecreateuserid != null" >
+        TEMPLATECREATEUSERID,
+      </if>
+      <if test="linkauditresult != null" >
+        LINKAUDITRESULT,
+      </if>
+      <if test="linkauditidea != null" >
+        LINKAUDITIDEA,
+      </if>
+      <if test="linktaskcomplete != null" >
+        LINKTASKCOMPLETE,
+      </if>
+      <if test="operatercontact != null" >
+        OPERATERCONTACT,
+      </if>
+      <if test="operateyear != null" >
+        OPERATEYEAR,
+      </if>
+      <if test="operatemonth != null" >
+        OPERATEMONTH,
+      </if>
+      <if test="operateday != null" >
+        OPERATEDAY,
+      </if>
+      <if test="transferreason != null" >
+        TRANSFERREASON,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mainid != null" >
+        #{mainid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeacceptlimit != null" >
+        #{nodeacceptlimit,jdbcType=DATE},
+      </if>
+      <if test="nodecompletelimit != null" >
+        #{nodecompletelimit,jdbcType=DATE},
+      </if>
+      <if test="operatetype != null" >
+        #{operatetype,jdbcType=DECIMAL},
+      </if>
+      <if test="operatetime != null" >
+        #{operatetime,jdbcType=DATE},
+      </if>
+      <if test="operateuserid != null" >
+        #{operateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="operateorgtype != null" >
+        #{operateorgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toorgtype != null" >
+        #{toorgtype,jdbcType=DECIMAL},
+      </if>
+      <if test="toorguserid != null" >
+        #{toorguserid,jdbcType=VARCHAR},
+      </if>
+      <if test="toroleid != null" >
+        #{toroleid,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptflag != null" >
+        #{acceptflag,jdbcType=DECIMAL},
+      </if>
+      <if test="accepttime != null" >
+        #{accepttime,jdbcType=DATE},
+      </if>
+      <if test="completeflag != null" >
+        #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="completetime != null" >
+        #{completetime,jdbcType=DATE},
+      </if>
+      <if test="prelinkid != null" >
+        #{prelinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentlinkid != null" >
+        #{parentlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlinkid != null" >
+        #{firstlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="piid != null" >
+        #{piid,jdbcType=VARCHAR},
+      </if>
+      <if test="aiid != null" >
+        #{aiid,jdbcType=VARCHAR},
+      </if>
+      <if test="activetemplateid != null" >
+        #{activetemplateid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetemplatename != null" >
+        #{nodetemplatename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeaccessories != null" >
+        #{nodeaccessories,jdbcType=VARCHAR},
+      </if>
+      <if test="toorgdeptid != null" >
+        #{toorgdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="toorgroleid != null" >
+        #{toorgroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="operateroleid != null" >
+        #{operateroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedeptid != null" >
+        #{operatedeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="correlationkey != null" >
+        #{correlationkey,jdbcType=VARCHAR},
+      </if>
+      <if test="templateflag != null" >
+        #{templateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="templatename != null" >
+        #{templatename,jdbcType=VARCHAR},
+      </if>
+      <if test="templatecreateuserid != null" >
+        #{templatecreateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkauditresult != null" >
+        #{linkauditresult,jdbcType=VARCHAR},
+      </if>
+      <if test="linkauditidea != null" >
+        #{linkauditidea,jdbcType=VARCHAR},
+      </if>
+      <if test="linktaskcomplete != null" >
+        #{linktaskcomplete,jdbcType=CHAR},
+      </if>
+      <if test="operatercontact != null" >
+        #{operatercontact,jdbcType=VARCHAR},
+      </if>
+      <if test="operateyear != null" >
+        #{operateyear,jdbcType=DECIMAL},
+      </if>
+      <if test="operatemonth != null" >
+        #{operatemonth,jdbcType=DECIMAL},
+      </if>
+      <if test="operateday != null" >
+        #{operateday,jdbcType=DECIMAL},
+      </if>
+      <if test="transferreason != null" >
+        #{transferreason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskLink" >
+    update COMMONTASK_LINK
+    <set >
+      <if test="mainid != null" >
+        MAINID = #{mainid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeacceptlimit != null" >
+        NODEACCEPTLIMIT = #{nodeacceptlimit,jdbcType=DATE},
+      </if>
+      <if test="nodecompletelimit != null" >
+        NODECOMPLETELIMIT = #{nodecompletelimit,jdbcType=DATE},
+      </if>
+      <if test="operatetype != null" >
+        OPERATETYPE = #{operatetype,jdbcType=DECIMAL},
+      </if>
+      <if test="operatetime != null" >
+        OPERATETIME = #{operatetime,jdbcType=DATE},
+      </if>
+      <if test="operateuserid != null" >
+        OPERATEUSERID = #{operateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="operateorgtype != null" >
+        OPERATEORGTYPE = #{operateorgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toorgtype != null" >
+        TOORGTYPE = #{toorgtype,jdbcType=DECIMAL},
+      </if>
+      <if test="toorguserid != null" >
+        TOORGUSERID = #{toorguserid,jdbcType=VARCHAR},
+      </if>
+      <if test="toroleid != null" >
+        TOROLEID = #{toroleid,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptflag != null" >
+        ACCEPTFLAG = #{acceptflag,jdbcType=DECIMAL},
+      </if>
+      <if test="accepttime != null" >
+        ACCEPTTIME = #{accepttime,jdbcType=DATE},
+      </if>
+      <if test="completeflag != null" >
+        COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="completetime != null" >
+        COMPLETETIME = #{completetime,jdbcType=DATE},
+      </if>
+      <if test="prelinkid != null" >
+        PRELINKID = #{prelinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentlinkid != null" >
+        PARENTLINKID = #{parentlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlinkid != null" >
+        FIRSTLINKID = #{firstlinkid,jdbcType=VARCHAR},
+      </if>
+      <if test="piid != null" >
+        PIID = #{piid,jdbcType=VARCHAR},
+      </if>
+      <if test="aiid != null" >
+        AIID = #{aiid,jdbcType=VARCHAR},
+      </if>
+      <if test="activetemplateid != null" >
+        ACTIVETEMPLATEID = #{activetemplateid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodetemplatename != null" >
+        NODETEMPLATENAME = #{nodetemplatename,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeaccessories != null" >
+        NODEACCESSORIES = #{nodeaccessories,jdbcType=VARCHAR},
+      </if>
+      <if test="toorgdeptid != null" >
+        TOORGDEPTID = #{toorgdeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="toorgroleid != null" >
+        TOORGROLEID = #{toorgroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="operateroleid != null" >
+        OPERATEROLEID = #{operateroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedeptid != null" >
+        OPERATEDEPTID = #{operatedeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="correlationkey != null" >
+        CORRELATIONKEY = #{correlationkey,jdbcType=VARCHAR},
+      </if>
+      <if test="templateflag != null" >
+        TEMPLATEFLAG = #{templateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="templatename != null" >
+        TEMPLATENAME = #{templatename,jdbcType=VARCHAR},
+      </if>
+      <if test="templatecreateuserid != null" >
+        TEMPLATECREATEUSERID = #{templatecreateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkauditresult != null" >
+        LINKAUDITRESULT = #{linkauditresult,jdbcType=VARCHAR},
+      </if>
+      <if test="linkauditidea != null" >
+        LINKAUDITIDEA = #{linkauditidea,jdbcType=VARCHAR},
+      </if>
+      <if test="linktaskcomplete != null" >
+        LINKTASKCOMPLETE = #{linktaskcomplete,jdbcType=CHAR},
+      </if>
+      <if test="operatercontact != null" >
+        OPERATERCONTACT = #{operatercontact,jdbcType=VARCHAR},
+      </if>
+      <if test="operateyear != null" >
+        OPERATEYEAR = #{operateyear,jdbcType=DECIMAL},
+      </if>
+      <if test="operatemonth != null" >
+        OPERATEMONTH = #{operatemonth,jdbcType=DECIMAL},
+      </if>
+      <if test="operateday != null" >
+        OPERATEDAY = #{operateday,jdbcType=DECIMAL},
+      </if>
+      <if test="transferreason != null" >
+        TRANSFERREASON = #{transferreason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskLink" >
+    update COMMONTASK_LINK
+    set MAINID = #{mainid,jdbcType=VARCHAR},
+      NODEACCEPTLIMIT = #{nodeacceptlimit,jdbcType=DATE},
+      NODECOMPLETELIMIT = #{nodecompletelimit,jdbcType=DATE},
+      OPERATETYPE = #{operatetype,jdbcType=DECIMAL},
+      OPERATETIME = #{operatetime,jdbcType=DATE},
+      OPERATEUSERID = #{operateuserid,jdbcType=VARCHAR},
+      OPERATEORGTYPE = #{operateorgtype,jdbcType=VARCHAR},
+      TOORGTYPE = #{toorgtype,jdbcType=DECIMAL},
+      TOORGUSERID = #{toorguserid,jdbcType=VARCHAR},
+      TOROLEID = #{toroleid,jdbcType=DECIMAL},
+      ACCEPTFLAG = #{acceptflag,jdbcType=DECIMAL},
+      ACCEPTTIME = #{accepttime,jdbcType=DATE},
+      COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      COMPLETETIME = #{completetime,jdbcType=DATE},
+      PRELINKID = #{prelinkid,jdbcType=VARCHAR},
+      PARENTLINKID = #{parentlinkid,jdbcType=VARCHAR},
+      FIRSTLINKID = #{firstlinkid,jdbcType=VARCHAR},
+      PIID = #{piid,jdbcType=VARCHAR},
+      AIID = #{aiid,jdbcType=VARCHAR},
+      ACTIVETEMPLATEID = #{activetemplateid,jdbcType=VARCHAR},
+      NODETEMPLATENAME = #{nodetemplatename,jdbcType=VARCHAR},
+      NODEACCESSORIES = #{nodeaccessories,jdbcType=VARCHAR},
+      TOORGDEPTID = #{toorgdeptid,jdbcType=VARCHAR},
+      TOORGROLEID = #{toorgroleid,jdbcType=VARCHAR},
+      OPERATEROLEID = #{operateroleid,jdbcType=VARCHAR},
+      OPERATEDEPTID = #{operatedeptid,jdbcType=VARCHAR},
+      CORRELATIONKEY = #{correlationkey,jdbcType=VARCHAR},
+      TEMPLATEFLAG = #{templateflag,jdbcType=VARCHAR},
+      TEMPLATENAME = #{templatename,jdbcType=VARCHAR},
+      TEMPLATECREATEUSERID = #{templatecreateuserid,jdbcType=VARCHAR},
+      LINKAUDITRESULT = #{linkauditresult,jdbcType=VARCHAR},
+      LINKAUDITIDEA = #{linkauditidea,jdbcType=VARCHAR},
+      LINKTASKCOMPLETE = #{linktaskcomplete,jdbcType=CHAR},
+      OPERATERCONTACT = #{operatercontact,jdbcType=VARCHAR},
+      OPERATEYEAR = #{operateyear,jdbcType=DECIMAL},
+      OPERATEMONTH = #{operatemonth,jdbcType=DECIMAL},
+      OPERATEDAY = #{operateday,jdbcType=DECIMAL},
+      TRANSFERREASON = #{transferreason,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <sql id="OracleDialectPrefix" >
+    <if test="pageHelper != null" >
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix" >
+    <if test="pageHelper != null" >
+      <![CDATA[ ) row_  where rownum <= #{pageHelper.end} ) where rownum_ > #{pageHelper.begin}  ]]>
+    </if>
+  </sql>
+  <sql id="TABLE_SEQUENCE" >
+    COMMONTASK_LINK_SEQUENCE.nextval
+  </sql>
+  <insert id="insertBatch" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskLink" >
+    insert into COMMONTASK_LINK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,MAINID,NODEACCEPTLIMIT,NODECOMPLETELIMIT,OPERATETYPE,OPERATETIME,OPERATEUSERID,OPERATEORGTYPE,TOORGTYPE,TOORGUSERID,TOROLEID,ACCEPTFLAG,ACCEPTTIME,COMPLETEFLAG,COMPLETETIME,PRELINKID,PARENTLINKID,FIRSTLINKID,PIID,AIID,ACTIVETEMPLATEID,NODETEMPLATENAME,NODEACCESSORIES,TOORGDEPTID,TOORGROLEID,OPERATEROLEID,OPERATEDEPTID,CORRELATIONKEY,TEMPLATEFLAG,TEMPLATENAME,TEMPLATECREATEUSERID,LINKAUDITRESULT,LINKAUDITIDEA,LINKTASKCOMPLETE,OPERATERCONTACT,OPERATEYEAR,OPERATEMONTH,OPERATEDAY,TRANSFERREASON,REMARK,
+    </trim>
+    select COMMONTASK_LINK_SEQUENCE.nextval,A.* from(
+    <foreach collection="list" index="index" item="item" separator="UNION ALL" >
+      SELECT
+      <trim suffixOverrides="," >
+        #{item.id,jdbcType=VARCHAR},#{item.mainid,jdbcType=VARCHAR},#{item.nodeacceptlimit,jdbcType=DATE},#{item.nodecompletelimit,jdbcType=DATE},#{item.operatetype,jdbcType=DECIMAL},#{item.operatetime,jdbcType=DATE},#{item.operateuserid,jdbcType=VARCHAR},#{item.operateorgtype,jdbcType=VARCHAR},#{item.toorgtype,jdbcType=DECIMAL},#{item.toorguserid,jdbcType=VARCHAR},#{item.toroleid,jdbcType=DECIMAL},#{item.acceptflag,jdbcType=DECIMAL},#{item.accepttime,jdbcType=DATE},#{item.completeflag,jdbcType=DECIMAL},#{item.completetime,jdbcType=DATE},#{item.prelinkid,jdbcType=VARCHAR},#{item.parentlinkid,jdbcType=VARCHAR},#{item.firstlinkid,jdbcType=VARCHAR},#{item.piid,jdbcType=VARCHAR},#{item.aiid,jdbcType=VARCHAR},#{item.activetemplateid,jdbcType=VARCHAR},#{item.nodetemplatename,jdbcType=VARCHAR},#{item.nodeaccessories,jdbcType=VARCHAR},#{item.toorgdeptid,jdbcType=VARCHAR},#{item.toorgroleid,jdbcType=VARCHAR},#{item.operateroleid,jdbcType=VARCHAR},#{item.operatedeptid,jdbcType=VARCHAR},#{item.correlationkey,jdbcType=VARCHAR},#{item.templateflag,jdbcType=VARCHAR},#{item.templatename,jdbcType=VARCHAR},#{item.templatecreateuserid,jdbcType=VARCHAR},#{item.linkauditresult,jdbcType=VARCHAR},#{item.linkauditidea,jdbcType=VARCHAR},#{item.linktaskcomplete,jdbcType=CHAR},#{item.operatercontact,jdbcType=VARCHAR},#{item.operateyear,jdbcType=DECIMAL},#{item.operatemonth,jdbcType=DECIMAL},#{item.operateday,jdbcType=DECIMAL},#{item.transferreason,jdbcType=VARCHAR},#{item.remark,jdbcType=VARCHAR},
+      </trim>
+      from dual
+    </foreach>
+    ) A
+  </insert>
+</mapper>

@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.sheet.commontask.dao.CommonTaskMainMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.sheet.commontask.module.CommonTaskMain" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="SHEETID" property="sheetid" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="SHEETACCEPTLIMIT" property="sheetacceptlimit" jdbcType="DATE" />
+    <result column="SHEETCOMPLETELIMIT" property="sheetcompletelimit" jdbcType="DATE" />
+    <result column="SENDTIME" property="sendtime" jdbcType="DATE" />
+    <result column="SENDORGTYPE" property="sendorgtype" jdbcType="VARCHAR" />
+    <result column="SENDUSERID" property="senduserid" jdbcType="VARCHAR" />
+    <result column="SENDCONTACT" property="sendcontact" jdbcType="VARCHAR" />
+    <result column="SHEETACCESSORIES" property="sheetaccessories" jdbcType="VARCHAR" />
+    <result column="ENDTIME" property="endtime" jdbcType="DATE" />
+    <result column="ENDRESULT" property="endresult" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="HOLDSTATISFIED" property="holdstatisfied" jdbcType="DECIMAL" />
+    <result column="ENDUSERID" property="enduserid" jdbcType="VARCHAR" />
+    <result column="DELETED" property="deleted" jdbcType="DECIMAL" />
+    <result column="PIID" property="piid" jdbcType="VARCHAR" />
+    <result column="SHEETTEMPLATENAME" property="sheettemplatename" jdbcType="VARCHAR" />
+    <result column="PARENTSHEETNAME" property="parentsheetname" jdbcType="VARCHAR" />
+    <result column="PARENTSHEETID" property="parentsheetid" jdbcType="VARCHAR" />
+    <result column="PARENTPHASENAME" property="parentphasename" jdbcType="VARCHAR" />
+    <result column="CORRELATIONKEY" property="correlationkey" jdbcType="VARCHAR" />
+    <result column="PARENTCORRELATION" property="parentcorrelation" jdbcType="VARCHAR" />
+    <result column="TODEPTID" property="todeptid" jdbcType="VARCHAR" />
+    <result column="SENDDEPTID" property="senddeptid" jdbcType="VARCHAR" />
+    <result column="SENDROLEID" property="sendroleid" jdbcType="VARCHAR" />
+    <result column="ENDROLEID" property="endroleid" jdbcType="VARCHAR" />
+    <result column="ENDDEPTID" property="enddeptid" jdbcType="VARCHAR" />
+    <result column="TEMPLATEFLAG" property="templateflag" jdbcType="VARCHAR" />
+    <result column="CANCELREASON" property="cancelreason" jdbcType="VARCHAR" />
+    <result column="MAINNETSORT1" property="mainnetsort1" jdbcType="VARCHAR" />
+    <result column="MAINNETSORT2" property="mainnetsort2" jdbcType="VARCHAR" />
+    <result column="MAINNETSORT3" property="mainnetsort3" jdbcType="VARCHAR" />
+    <result column="MAINTASKTYPE" property="maintasktype" jdbcType="VARCHAR" />
+    <result column="MAINTASKDESCRIPTION" property="maintaskdescription" jdbcType="CHAR" />
+    <result column="MAINREMARK" property="mainremark" jdbcType="VARCHAR" />
+    <result column="SENDYEAR" property="sendyear" jdbcType="DECIMAL" />
+    <result column="SENDMONTH" property="sendmonth" jdbcType="DECIMAL" />
+    <result column="SENDDAY" property="sendday" jdbcType="DECIMAL" />
+    <result column="INVOKEMODE" property="invokemode" jdbcType="VARCHAR" />
+    <result column="IFCOMPLAINT" property="ifcomplaint" jdbcType="VARCHAR" />
+    <result column="COMPLAINTID" property="complaintid" jdbcType="VARCHAR" />
+    <result column="MAINTASKTYPE2" property="maintasktype2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SHEETID, TITLE, SHEETACCEPTLIMIT, SHEETCOMPLETELIMIT, SENDTIME, SENDORGTYPE, 
+    SENDUSERID, SENDCONTACT, SHEETACCESSORIES, ENDTIME, ENDRESULT, STATUS, HOLDSTATISFIED, 
+    ENDUSERID, DELETED, PIID, SHEETTEMPLATENAME, PARENTSHEETNAME, PARENTSHEETID, PARENTPHASENAME, 
+    CORRELATIONKEY, PARENTCORRELATION, TODEPTID, SENDDEPTID, SENDROLEID, ENDROLEID, ENDDEPTID, 
+    TEMPLATEFLAG, CANCELREASON, MAINNETSORT1, MAINNETSORT2, MAINNETSORT3, MAINTASKTYPE, 
+    MAINTASKDESCRIPTION, MAINREMARK, SENDYEAR, SENDMONTH, SENDDAY, INVOKEMODE, IFCOMPLAINT, 
+    COMPLAINTID, MAINTASKTYPE2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from COMMONTASK_MAIN
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from COMMONTASK_MAIN
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskMain" >
+    insert into COMMONTASK_MAIN (ID, SHEETID, TITLE, 
+      SHEETACCEPTLIMIT, SHEETCOMPLETELIMIT, SENDTIME, 
+      SENDORGTYPE, SENDUSERID, SENDCONTACT, 
+      SHEETACCESSORIES, ENDTIME, ENDRESULT, 
+      STATUS, HOLDSTATISFIED, ENDUSERID, 
+      DELETED, PIID, SHEETTEMPLATENAME, 
+      PARENTSHEETNAME, PARENTSHEETID, PARENTPHASENAME, 
+      CORRELATIONKEY, PARENTCORRELATION, TODEPTID, 
+      SENDDEPTID, SENDROLEID, ENDROLEID, 
+      ENDDEPTID, TEMPLATEFLAG, CANCELREASON, 
+      MAINNETSORT1, MAINNETSORT2, MAINNETSORT3, 
+      MAINTASKTYPE, MAINTASKDESCRIPTION, MAINREMARK, 
+      SENDYEAR, SENDMONTH, SENDDAY, 
+      INVOKEMODE, IFCOMPLAINT, COMPLAINTID, 
+      MAINTASKTYPE2)
+    values (#{id,jdbcType=VARCHAR}, #{sheetid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{sheetacceptlimit,jdbcType=DATE}, #{sheetcompletelimit,jdbcType=DATE}, #{sendtime,jdbcType=DATE}, 
+      #{sendorgtype,jdbcType=VARCHAR}, #{senduserid,jdbcType=VARCHAR}, #{sendcontact,jdbcType=VARCHAR}, 
+      #{sheetaccessories,jdbcType=VARCHAR}, #{endtime,jdbcType=DATE}, #{endresult,jdbcType=VARCHAR}, 
+      #{status,jdbcType=DECIMAL}, #{holdstatisfied,jdbcType=DECIMAL}, #{enduserid,jdbcType=VARCHAR}, 
+      #{deleted,jdbcType=DECIMAL}, #{piid,jdbcType=VARCHAR}, #{sheettemplatename,jdbcType=VARCHAR}, 
+      #{parentsheetname,jdbcType=VARCHAR}, #{parentsheetid,jdbcType=VARCHAR}, #{parentphasename,jdbcType=VARCHAR}, 
+      #{correlationkey,jdbcType=VARCHAR}, #{parentcorrelation,jdbcType=VARCHAR}, #{todeptid,jdbcType=VARCHAR}, 
+      #{senddeptid,jdbcType=VARCHAR}, #{sendroleid,jdbcType=VARCHAR}, #{endroleid,jdbcType=VARCHAR}, 
+      #{enddeptid,jdbcType=VARCHAR}, #{templateflag,jdbcType=VARCHAR}, #{cancelreason,jdbcType=VARCHAR}, 
+      #{mainnetsort1,jdbcType=VARCHAR}, #{mainnetsort2,jdbcType=VARCHAR}, #{mainnetsort3,jdbcType=VARCHAR}, 
+      #{maintasktype,jdbcType=VARCHAR}, #{maintaskdescription,jdbcType=CHAR}, #{mainremark,jdbcType=VARCHAR}, 
+      #{sendyear,jdbcType=DECIMAL}, #{sendmonth,jdbcType=DECIMAL}, #{sendday,jdbcType=DECIMAL}, 
+      #{invokemode,jdbcType=VARCHAR}, #{ifcomplaint,jdbcType=VARCHAR}, #{complaintid,jdbcType=VARCHAR}, 
+      #{maintasktype2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskMain" >
+    insert into COMMONTASK_MAIN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="sheetid != null" >
+        SHEETID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="sheetacceptlimit != null" >
+        SHEETACCEPTLIMIT,
+      </if>
+      <if test="sheetcompletelimit != null" >
+        SHEETCOMPLETELIMIT,
+      </if>
+      <if test="sendtime != null" >
+        SENDTIME,
+      </if>
+      <if test="sendorgtype != null" >
+        SENDORGTYPE,
+      </if>
+      <if test="senduserid != null" >
+        SENDUSERID,
+      </if>
+      <if test="sendcontact != null" >
+        SENDCONTACT,
+      </if>
+      <if test="sheetaccessories != null" >
+        SHEETACCESSORIES,
+      </if>
+      <if test="endtime != null" >
+        ENDTIME,
+      </if>
+      <if test="endresult != null" >
+        ENDRESULT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="holdstatisfied != null" >
+        HOLDSTATISFIED,
+      </if>
+      <if test="enduserid != null" >
+        ENDUSERID,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="piid != null" >
+        PIID,
+      </if>
+      <if test="sheettemplatename != null" >
+        SHEETTEMPLATENAME,
+      </if>
+      <if test="parentsheetname != null" >
+        PARENTSHEETNAME,
+      </if>
+      <if test="parentsheetid != null" >
+        PARENTSHEETID,
+      </if>
+      <if test="parentphasename != null" >
+        PARENTPHASENAME,
+      </if>
+      <if test="correlationkey != null" >
+        CORRELATIONKEY,
+      </if>
+      <if test="parentcorrelation != null" >
+        PARENTCORRELATION,
+      </if>
+      <if test="todeptid != null" >
+        TODEPTID,
+      </if>
+      <if test="senddeptid != null" >
+        SENDDEPTID,
+      </if>
+      <if test="sendroleid != null" >
+        SENDROLEID,
+      </if>
+      <if test="endroleid != null" >
+        ENDROLEID,
+      </if>
+      <if test="enddeptid != null" >
+        ENDDEPTID,
+      </if>
+      <if test="templateflag != null" >
+        TEMPLATEFLAG,
+      </if>
+      <if test="cancelreason != null" >
+        CANCELREASON,
+      </if>
+      <if test="mainnetsort1 != null" >
+        MAINNETSORT1,
+      </if>
+      <if test="mainnetsort2 != null" >
+        MAINNETSORT2,
+      </if>
+      <if test="mainnetsort3 != null" >
+        MAINNETSORT3,
+      </if>
+      <if test="maintasktype != null" >
+        MAINTASKTYPE,
+      </if>
+      <if test="maintaskdescription != null" >
+        MAINTASKDESCRIPTION,
+      </if>
+      <if test="mainremark != null" >
+        MAINREMARK,
+      </if>
+      <if test="sendyear != null" >
+        SENDYEAR,
+      </if>
+      <if test="sendmonth != null" >
+        SENDMONTH,
+      </if>
+      <if test="sendday != null" >
+        SENDDAY,
+      </if>
+      <if test="invokemode != null" >
+        INVOKEMODE,
+      </if>
+      <if test="ifcomplaint != null" >
+        IFCOMPLAINT,
+      </if>
+      <if test="complaintid != null" >
+        COMPLAINTID,
+      </if>
+      <if test="maintasktype2 != null" >
+        MAINTASKTYPE2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetid != null" >
+        #{sheetid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetacceptlimit != null" >
+        #{sheetacceptlimit,jdbcType=DATE},
+      </if>
+      <if test="sheetcompletelimit != null" >
+        #{sheetcompletelimit,jdbcType=DATE},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=DATE},
+      </if>
+      <if test="sendorgtype != null" >
+        #{sendorgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="senduserid != null" >
+        #{senduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcontact != null" >
+        #{sendcontact,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetaccessories != null" >
+        #{sheetaccessories,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="endresult != null" >
+        #{endresult,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="holdstatisfied != null" >
+        #{holdstatisfied,jdbcType=DECIMAL},
+      </if>
+      <if test="enduserid != null" >
+        #{enduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="piid != null" >
+        #{piid,jdbcType=VARCHAR},
+      </if>
+      <if test="sheettemplatename != null" >
+        #{sheettemplatename,jdbcType=VARCHAR},
+      </if>
+      <if test="parentsheetname != null" >
+        #{parentsheetname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentsheetid != null" >
+        #{parentsheetid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentphasename != null" >
+        #{parentphasename,jdbcType=VARCHAR},
+      </if>
+      <if test="correlationkey != null" >
+        #{correlationkey,jdbcType=VARCHAR},
+      </if>
+      <if test="parentcorrelation != null" >
+        #{parentcorrelation,jdbcType=VARCHAR},
+      </if>
+      <if test="todeptid != null" >
+        #{todeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="senddeptid != null" >
+        #{senddeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendroleid != null" >
+        #{sendroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="endroleid != null" >
+        #{endroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="enddeptid != null" >
+        #{enddeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="templateflag != null" >
+        #{templateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelreason != null" >
+        #{cancelreason,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnetsort1 != null" >
+        #{mainnetsort1,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnetsort2 != null" >
+        #{mainnetsort2,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnetsort3 != null" >
+        #{mainnetsort3,jdbcType=VARCHAR},
+      </if>
+      <if test="maintasktype != null" >
+        #{maintasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="maintaskdescription != null" >
+        #{maintaskdescription,jdbcType=CHAR},
+      </if>
+      <if test="mainremark != null" >
+        #{mainremark,jdbcType=VARCHAR},
+      </if>
+      <if test="sendyear != null" >
+        #{sendyear,jdbcType=DECIMAL},
+      </if>
+      <if test="sendmonth != null" >
+        #{sendmonth,jdbcType=DECIMAL},
+      </if>
+      <if test="sendday != null" >
+        #{sendday,jdbcType=DECIMAL},
+      </if>
+      <if test="invokemode != null" >
+        #{invokemode,jdbcType=VARCHAR},
+      </if>
+      <if test="ifcomplaint != null" >
+        #{ifcomplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintid != null" >
+        #{complaintid,jdbcType=VARCHAR},
+      </if>
+      <if test="maintasktype2 != null" >
+        #{maintasktype2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskMain" >
+    update COMMONTASK_MAIN
+    <set >
+      <if test="sheetid != null" >
+        SHEETID = #{sheetid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetacceptlimit != null" >
+        SHEETACCEPTLIMIT = #{sheetacceptlimit,jdbcType=DATE},
+      </if>
+      <if test="sheetcompletelimit != null" >
+        SHEETCOMPLETELIMIT = #{sheetcompletelimit,jdbcType=DATE},
+      </if>
+      <if test="sendtime != null" >
+        SENDTIME = #{sendtime,jdbcType=DATE},
+      </if>
+      <if test="sendorgtype != null" >
+        SENDORGTYPE = #{sendorgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="senduserid != null" >
+        SENDUSERID = #{senduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcontact != null" >
+        SENDCONTACT = #{sendcontact,jdbcType=VARCHAR},
+      </if>
+      <if test="sheetaccessories != null" >
+        SHEETACCESSORIES = #{sheetaccessories,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        ENDTIME = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="endresult != null" >
+        ENDRESULT = #{endresult,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="holdstatisfied != null" >
+        HOLDSTATISFIED = #{holdstatisfied,jdbcType=DECIMAL},
+      </if>
+      <if test="enduserid != null" >
+        ENDUSERID = #{enduserid,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="piid != null" >
+        PIID = #{piid,jdbcType=VARCHAR},
+      </if>
+      <if test="sheettemplatename != null" >
+        SHEETTEMPLATENAME = #{sheettemplatename,jdbcType=VARCHAR},
+      </if>
+      <if test="parentsheetname != null" >
+        PARENTSHEETNAME = #{parentsheetname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentsheetid != null" >
+        PARENTSHEETID = #{parentsheetid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentphasename != null" >
+        PARENTPHASENAME = #{parentphasename,jdbcType=VARCHAR},
+      </if>
+      <if test="correlationkey != null" >
+        CORRELATIONKEY = #{correlationkey,jdbcType=VARCHAR},
+      </if>
+      <if test="parentcorrelation != null" >
+        PARENTCORRELATION = #{parentcorrelation,jdbcType=VARCHAR},
+      </if>
+      <if test="todeptid != null" >
+        TODEPTID = #{todeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="senddeptid != null" >
+        SENDDEPTID = #{senddeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendroleid != null" >
+        SENDROLEID = #{sendroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="endroleid != null" >
+        ENDROLEID = #{endroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="enddeptid != null" >
+        ENDDEPTID = #{enddeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="templateflag != null" >
+        TEMPLATEFLAG = #{templateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelreason != null" >
+        CANCELREASON = #{cancelreason,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnetsort1 != null" >
+        MAINNETSORT1 = #{mainnetsort1,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnetsort2 != null" >
+        MAINNETSORT2 = #{mainnetsort2,jdbcType=VARCHAR},
+      </if>
+      <if test="mainnetsort3 != null" >
+        MAINNETSORT3 = #{mainnetsort3,jdbcType=VARCHAR},
+      </if>
+      <if test="maintasktype != null" >
+        MAINTASKTYPE = #{maintasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="maintaskdescription != null" >
+        MAINTASKDESCRIPTION = #{maintaskdescription,jdbcType=CHAR},
+      </if>
+      <if test="mainremark != null" >
+        MAINREMARK = #{mainremark,jdbcType=VARCHAR},
+      </if>
+      <if test="sendyear != null" >
+        SENDYEAR = #{sendyear,jdbcType=DECIMAL},
+      </if>
+      <if test="sendmonth != null" >
+        SENDMONTH = #{sendmonth,jdbcType=DECIMAL},
+      </if>
+      <if test="sendday != null" >
+        SENDDAY = #{sendday,jdbcType=DECIMAL},
+      </if>
+      <if test="invokemode != null" >
+        INVOKEMODE = #{invokemode,jdbcType=VARCHAR},
+      </if>
+      <if test="ifcomplaint != null" >
+        IFCOMPLAINT = #{ifcomplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintid != null" >
+        COMPLAINTID = #{complaintid,jdbcType=VARCHAR},
+      </if>
+      <if test="maintasktype2 != null" >
+        MAINTASKTYPE2 = #{maintasktype2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskMain" >
+    update COMMONTASK_MAIN
+    set SHEETID = #{sheetid,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SHEETACCEPTLIMIT = #{sheetacceptlimit,jdbcType=DATE},
+      SHEETCOMPLETELIMIT = #{sheetcompletelimit,jdbcType=DATE},
+      SENDTIME = #{sendtime,jdbcType=DATE},
+      SENDORGTYPE = #{sendorgtype,jdbcType=VARCHAR},
+      SENDUSERID = #{senduserid,jdbcType=VARCHAR},
+      SENDCONTACT = #{sendcontact,jdbcType=VARCHAR},
+      SHEETACCESSORIES = #{sheetaccessories,jdbcType=VARCHAR},
+      ENDTIME = #{endtime,jdbcType=DATE},
+      ENDRESULT = #{endresult,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      HOLDSTATISFIED = #{holdstatisfied,jdbcType=DECIMAL},
+      ENDUSERID = #{enduserid,jdbcType=VARCHAR},
+      DELETED = #{deleted,jdbcType=DECIMAL},
+      PIID = #{piid,jdbcType=VARCHAR},
+      SHEETTEMPLATENAME = #{sheettemplatename,jdbcType=VARCHAR},
+      PARENTSHEETNAME = #{parentsheetname,jdbcType=VARCHAR},
+      PARENTSHEETID = #{parentsheetid,jdbcType=VARCHAR},
+      PARENTPHASENAME = #{parentphasename,jdbcType=VARCHAR},
+      CORRELATIONKEY = #{correlationkey,jdbcType=VARCHAR},
+      PARENTCORRELATION = #{parentcorrelation,jdbcType=VARCHAR},
+      TODEPTID = #{todeptid,jdbcType=VARCHAR},
+      SENDDEPTID = #{senddeptid,jdbcType=VARCHAR},
+      SENDROLEID = #{sendroleid,jdbcType=VARCHAR},
+      ENDROLEID = #{endroleid,jdbcType=VARCHAR},
+      ENDDEPTID = #{enddeptid,jdbcType=VARCHAR},
+      TEMPLATEFLAG = #{templateflag,jdbcType=VARCHAR},
+      CANCELREASON = #{cancelreason,jdbcType=VARCHAR},
+      MAINNETSORT1 = #{mainnetsort1,jdbcType=VARCHAR},
+      MAINNETSORT2 = #{mainnetsort2,jdbcType=VARCHAR},
+      MAINNETSORT3 = #{mainnetsort3,jdbcType=VARCHAR},
+      MAINTASKTYPE = #{maintasktype,jdbcType=VARCHAR},
+      MAINTASKDESCRIPTION = #{maintaskdescription,jdbcType=CHAR},
+      MAINREMARK = #{mainremark,jdbcType=VARCHAR},
+      SENDYEAR = #{sendyear,jdbcType=DECIMAL},
+      SENDMONTH = #{sendmonth,jdbcType=DECIMAL},
+      SENDDAY = #{sendday,jdbcType=DECIMAL},
+      INVOKEMODE = #{invokemode,jdbcType=VARCHAR},
+      IFCOMPLAINT = #{ifcomplaint,jdbcType=VARCHAR},
+      COMPLAINTID = #{complaintid,jdbcType=VARCHAR},
+      MAINTASKTYPE2 = #{maintasktype2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <sql id="OracleDialectPrefix" >
+    <if test="pageHelper != null" >
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix" >
+    <if test="pageHelper != null" >
+      <![CDATA[ ) row_  where rownum <= #{pageHelper.end} ) where rownum_ > #{pageHelper.begin}  ]]>
+    </if>
+  </sql>
+  <sql id="TABLE_SEQUENCE" >
+    COMMONTASK_MAIN_SEQUENCE.nextval
+  </sql>
+  <insert id="insertBatch" parameterType="com.boco.eoms.sheet.commontask.module.CommonTaskMain" >
+    insert into COMMONTASK_MAIN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,SHEETID,TITLE,SHEETACCEPTLIMIT,SHEETCOMPLETELIMIT,SENDTIME,SENDORGTYPE,SENDUSERID,SENDCONTACT,SHEETACCESSORIES,ENDTIME,ENDRESULT,STATUS,HOLDSTATISFIED,ENDUSERID,DELETED,PIID,SHEETTEMPLATENAME,PARENTSHEETNAME,PARENTSHEETID,PARENTPHASENAME,CORRELATIONKEY,PARENTCORRELATION,TODEPTID,SENDDEPTID,SENDROLEID,ENDROLEID,ENDDEPTID,TEMPLATEFLAG,CANCELREASON,MAINNETSORT1,MAINNETSORT2,MAINNETSORT3,MAINTASKTYPE,MAINTASKDESCRIPTION,MAINREMARK,SENDYEAR,SENDMONTH,SENDDAY,INVOKEMODE,IFCOMPLAINT,COMPLAINTID,MAINTASKTYPE2,
+    </trim>
+    select COMMONTASK_MAIN_SEQUENCE.nextval,A.* from(
+    <foreach collection="list" index="index" item="item" separator="UNION ALL" >
+      SELECT
+      <trim suffixOverrides="," >
+        #{item.id,jdbcType=VARCHAR},#{item.sheetid,jdbcType=VARCHAR},#{item.title,jdbcType=VARCHAR},#{item.sheetacceptlimit,jdbcType=DATE},#{item.sheetcompletelimit,jdbcType=DATE},#{item.sendtime,jdbcType=DATE},#{item.sendorgtype,jdbcType=VARCHAR},#{item.senduserid,jdbcType=VARCHAR},#{item.sendcontact,jdbcType=VARCHAR},#{item.sheetaccessories,jdbcType=VARCHAR},#{item.endtime,jdbcType=DATE},#{item.endresult,jdbcType=VARCHAR},#{item.status,jdbcType=DECIMAL},#{item.holdstatisfied,jdbcType=DECIMAL},#{item.enduserid,jdbcType=VARCHAR},#{item.deleted,jdbcType=DECIMAL},#{item.piid,jdbcType=VARCHAR},#{item.sheettemplatename,jdbcType=VARCHAR},#{item.parentsheetname,jdbcType=VARCHAR},#{item.parentsheetid,jdbcType=VARCHAR},#{item.parentphasename,jdbcType=VARCHAR},#{item.correlationkey,jdbcType=VARCHAR},#{item.parentcorrelation,jdbcType=VARCHAR},#{item.todeptid,jdbcType=VARCHAR},#{item.senddeptid,jdbcType=VARCHAR},#{item.sendroleid,jdbcType=VARCHAR},#{item.endroleid,jdbcType=VARCHAR},#{item.enddeptid,jdbcType=VARCHAR},#{item.templateflag,jdbcType=VARCHAR},#{item.cancelreason,jdbcType=VARCHAR},#{item.mainnetsort1,jdbcType=VARCHAR},#{item.mainnetsort2,jdbcType=VARCHAR},#{item.mainnetsort3,jdbcType=VARCHAR},#{item.maintasktype,jdbcType=VARCHAR},#{item.maintaskdescription,jdbcType=CHAR},#{item.mainremark,jdbcType=VARCHAR},#{item.sendyear,jdbcType=DECIMAL},#{item.sendmonth,jdbcType=DECIMAL},#{item.sendday,jdbcType=DECIMAL},#{item.invokemode,jdbcType=VARCHAR},#{item.ifcomplaint,jdbcType=VARCHAR},#{item.complaintid,jdbcType=VARCHAR},#{item.maintasktype2,jdbcType=VARCHAR},
+      </trim>
+      from dual
+    </foreach>
+    ) A
+  </insert>
+</mapper>

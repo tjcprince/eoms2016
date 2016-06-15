@@ -75,7 +75,7 @@ public class AuthController {
 		// }
 		if (userNew.getPassword().equals(MD5Util.textToMD5L32(user.getPassword()))) {
 			final Token token = AuthUtils.createToken(request.getRemoteHost(), userNew.getId());
-			request.getSession().setAttribute("user", userNew);
+			
 			return Response.ok().entity(token).build();
 		}
 		return Response.status(Status.UNAUTHORIZED).entity(LOGING_ERROR_MSG).build();

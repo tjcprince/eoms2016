@@ -32,7 +32,6 @@ public class AuthFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("22222222222222222222222222222");
 		HttpServletResponse response = (HttpServletResponse) res;
 		HttpServletRequest request = (HttpServletRequest) req;
 		WebApplicationContext context = (WebApplicationContext) servletContext
@@ -58,7 +57,8 @@ public class AuthFilter implements Filter {
 					e.printStackTrace();
 				}
 
-				TawSystemUser u = userService.selectByUserid(subject);
+				TawSystemUser u = userService.selectByPrimaryKey(subject);
+				request.getSession().setAttribute("user", u);
 				System.out.println(u);
 				if (u != null) {
 					chain.doFilter(req, res);
