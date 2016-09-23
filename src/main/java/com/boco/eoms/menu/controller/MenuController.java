@@ -170,7 +170,14 @@ public class MenuController {
 		
 		return Response.ok().entity(list).build();
 	}
-	
+	/***
+	 * 查询节点id查询此节点下的菜单
+	 * @param userid   用户id
+	 * @param deptStr  用户所属的所有部门 拼接的字符串
+	 * @param roleStr  用户所属所有角色  拼接的字符串
+	 * @param parentcode
+	 * @return
+	 */
 	public List<Map<String, Object>> menuTree(String userid,String deptStr,String roleStr,String parentcode){
 		String sql="select distinct tawsystemp0_.id ,"+
                 "tawsystemp0_.code ,"+
