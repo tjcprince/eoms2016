@@ -55,9 +55,9 @@ public class SheetController {
 		List list=new ArrayList();
 		System.out.println("---begin---------");
 		String username=request.getParameter("username");
-		CloseableHttpResponse res=HttpClientUtil.post("http://10.50.14.89:9080/eoms35/sheet/commontask/commontask.do?method=getUser","userName="+LoginUser.getUser(request).getUserid()+"&type=interface");
-		
-		HttpClientUtil.printResponse(res);
+//		CloseableHttpResponse res=HttpClientUtil.post("http://10.50.14.89:9080/eoms35/sheet/commontask/commontask.do?method=getUser","userName="+LoginUser.getUser(request).getUserid()+"&type=interface");
+//		
+//		HttpClientUtil.printResponse(res);
 		System.out.println("---end-------------------------------------");
 		
 		return Response.ok().entity(list).build();

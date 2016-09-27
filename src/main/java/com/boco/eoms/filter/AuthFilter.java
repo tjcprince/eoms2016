@@ -19,7 +19,11 @@ import com.boco.eoms.auth.utils.AuthUtils;
 import com.boco.eoms.tawSystemUser.module.TawSystemUser;
 import com.boco.eoms.tawSystemUser.service.TawSystemUserServiceI;
 import com.nimbusds.jose.JOSEException;
-
+/**
+ * token认证拦截器，目前不使用此拦截器了，后续删除
+ * @author tanjianchao
+ *
+ */
 public class AuthFilter implements Filter {
 	private ServletContext servletContext;
 
@@ -37,7 +41,6 @@ public class AuthFilter implements Filter {
 		WebApplicationContext context = (WebApplicationContext) servletContext
 				.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 		TawSystemUserServiceI userService = (TawSystemUserServiceI) context.getBean("tawSystemUserService");
-		System.out.println(request.getServletPath());
 		if ("/auth/login".equals(request.getServletPath())) {
 			chain.doFilter(req, res);
 		} else if ("/websck".equals(request.getServletPath())) {
@@ -46,12 +49,10 @@ public class AuthFilter implements Filter {
 			chain.doFilter(req, res);
 		} else {
 			String authHeadKey = request.getHeader(AuthUtils.AUTH_HEADER_KEY);
-			System.out.println(authHeadKey);
 			if (authHeadKey != null) {
 				String subject = null;
 				try {
 					subject = AuthUtils.getSubject(authHeadKey);
-					System.out.println(subject);
 				} catch (ParseException | JOSEException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -59,7 +60,6 @@ public class AuthFilter implements Filter {
 
 				TawSystemUser u = userService.selectByPrimaryKey(subject);
 				request.getSession().setAttribute("user", u);
-				System.out.println(u);
 				if (u != null) {
 					chain.doFilter(req, res);
 				}

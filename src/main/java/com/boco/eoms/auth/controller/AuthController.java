@@ -14,7 +14,6 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +23,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.boco.eoms.auth.module.Token;
 import com.boco.eoms.auth.utils.AuthUtils;
 import com.boco.eoms.commons.utils.HttpClientUtil;
-import com.boco.eoms.commons.utils.LoginUser;
 import com.boco.eoms.commons.utils.MD5Util;
 import com.boco.eoms.tawSystemUser.module.TawSystemUser;
 import com.boco.eoms.tawSystemUser.service.TawSystemUserServiceI;
 import com.nimbusds.jose.JOSEException;
 
+/**
+ * token认证模块
+ * 
+ * @author tanjianchao
+ *
+ */
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
@@ -43,7 +47,14 @@ public class AuthController {
 			UNLINK_ERROR_MSG = "Could not unlink %s account because it is your only sign-in method";
 	@Resource
 	private TawSystemUserServiceI tawSystemUserService;
-
+	/**
+	 * 用户注册
+	 * @param user
+	 * @param request
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 * @throws JOSEException
+	 */
 	@RequestMapping(value = { "signup" }, method = RequestMethod.POST)
 	@ResponseBody
 	public Response signup(TawSystemUser user, HttpServletRequest request)
@@ -52,26 +63,34 @@ public class AuthController {
 		// user.setPassword(PasswordService.hashPassword(user.getPassword()));
 
 		user.setPassword(MD5Util.textToMD5L32(user.getPassword()));
-		int a = tawSystemUserService.insert(user);
+		int num = tawSystemUserService.insert(user);
 		// User userNew=userService.selectByEmail("tan@163.com");
 		// final Token token = AuthUtils.createToken(request.getRemoteHost(),
 		// userNew.getId());
 		// Response.status(Status.CREATED).entity(token).build();
 		// list.add(a);
 		// return list;
-		if (a == 1) {
+		if (num == 1) {
 			return Response.ok().entity(1).build();
 		} else {
 			return Response.status(Status.UNAUTHORIZED).entity(LOGING_ERROR_MSG).build();
 		}
 	}
-
+	/**
+	 * 用户登录
+	 * @param user
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws JOSEException
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 */
 	@RequestMapping(value = { "login" }, method = RequestMethod.POST)
 	@ResponseBody
-	public Response login(TawSystemUser user, HttpServletRequest request,HttpServletResponse response)
+	public Response login(TawSystemUser user, HttpServletRequest request, HttpServletResponse response)
 			throws JOSEException, ClientProtocolException, IOException {
 		List list = new ArrayList();
-		System.out.println(user.getEmail());
 		TawSystemUser userNew = tawSystemUserService.selectByUserid(user.getUserid());
 		// if (PasswordService.checkPassword(user.getPassword(),
 		// userNew.getPassword())) {
@@ -87,7 +106,15 @@ public class AuthController {
 		return Response.status(Status.UNAUTHORIZED).entity(LOGING_ERROR_MSG).build();
 
 	}
-
+	/**
+	 * 功能实验使用，后续删除
+	 * @param username
+	 * @param request
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 * @throws ParseException
+	 * @throws JOSEException
+	 */
 	@RequestMapping(value = { "getUser" }, method = RequestMethod.GET)
 	@ResponseBody
 	public Response getUser(String username, HttpServletRequest request)
@@ -110,21 +137,25 @@ public class AuthController {
 		// list.add(u);
 		return Response.ok().entity(list).build();
 	}
+
 	/**
-	 * 模拟登陆eoms系统
+	 * 测试使用，后续删除
+	 * 
 	 * @param request
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
 	@RequestMapping(value = { "loginEoms" }, method = RequestMethod.GET)
 	@ResponseBody
-	public Response loginEoms(HttpServletRequest request) throws ClientProtocolException, IOException{
-		List list=new ArrayList();
-		String username=request.getParameter("username");
-		String password=request.getParameter("password");
-		CloseableHttpResponse res=HttpClientUtil.post("http://10.50.14.89:9080/eoms35/sheet/commontask/commontask.do?method=getUser","userName="+username+"&type=interface");
-		
-		HttpClientUtil.printResponse(res);
+	public Response loginEoms(HttpServletRequest request) throws ClientProtocolException, IOException {
+		List list = new ArrayList();
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+//		CloseableHttpResponse res = HttpClientUtil.post(
+//				"http://10.50.14.89:9080/eoms35/sheet/commontask/commontask.do?method=getUser",
+//				"userName=" + username + "&type=interface");
+//
+//		HttpClientUtil.printResponse(res);
 		return Response.ok().entity(list).build();
 	}
 }
